@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Lora:ital,wght@1,500&family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
+ 
+:root{
+    /* --main-bg-color:rgb(201, 13, 107); */
+    --main-bg-color:rgb(167, 96, 4);
+    --coffee-color: rgb(51, 50, 38);
+    --blues: rgb(6, 63, 1);
+    --sky:	#9FE2BF;
+    --sky2:		#53d27d76;
+    --aesthetic: rgb(250, 250, 236);
+    --aesthetic2: #fbd7a1;
+    --test: #2a4674;
+    --test: #84caed;
+    --font1: 'Baloo 2', serif;
+    --font2:  'Roboto', sans-serif;
+}
+
+.font1{
+    font-family: var(--font1);
+}
+
+.font2{
+    font-family: var(--font2);
+}
+
+.max-width-1{
+    max-width: 100vw;
+}
+
+.max-width-2{
+    max-width: 60vw;
+}
+.m-auto{
+    margin:auto;
+}
+
+.btn{
+    font-family: var(--font1);
+    font-size: 18px; 
+    padding: 0px 15px;
+    border: 2px solid var(--coffee-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-right: 50px;
+    margin-left: 10px;
+    font-weight: 550;
+}
+
+.btn:hover{
+    color:rgba(8, 53, 136, 0.692);
+    background-color: var(--aesthetic);
+    font-weight: bolder;
+    text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+} 
+
+.resume{
+    font-family: var(--font1);
+    font-size: 18px; 
+    padding: 0px 15px;
+    border: 2px solid var(--coffee-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: 550;
+}
+
+.resume:hover{
+    color:rgba(8, 53, 136, 0.692);
+    background-color: var(--aesthetic);
+    font-weight: bolder;
+    text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+} 
+
+.form-input{
+    padding: 0px 5px;
+    font-size: 18px;
+    border: 2px solid var(var(--coffee-color));
+    border-radius: 5px;
+    margin: 10px 10px;
+    font-family: var(--font1);
+}
+
+.contact-left p{
+    margin: 20px 2px;
+    color: var(--blues);
+    font-size: 18px;
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    text-align: justify;
+}
