@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/topic.css"> 
+    <link rel="stylesheet" href="css/post.css"> 
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Maximum and Minimum in an Array</h1>
+            <p>Write a C++ function to return minimum and maximum in an array. Your program should make the minimum number of comparisons. </p>
+            <textarea name="" id="" cols="15" rows="5">
+Input:
+N = 6
+A[] = {3, 2, 1, 56, 10000, 167}
+Output:
+min = 1, max =  10000
+            </textarea>
+            <p>As we can see that, we have been asked with two values, minimum as well as maximum. So two return two values from a function we can either make use of structure and the simpler way could be <i>pair.</i> :)</i></p>
+            <h3>Approach 1</h3>
+            <p>Algorithm:<br>
+                1. We will simply return the first element, if only one element is there.<br>
+                2. If more than one elements are there, then store the greater among, 
+                first and second element in the p.first and smaller in p.second.<br>
+                3. Now check if any element greater than p.first occurs in the array, if yes
+                fhen update p.first, and similarly for p.second :)<br>
+                4. At the end, p.first would contain the maximum element, and p.second would 
+                contain the minimum element :)<br>
+            </p>
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="30" rows="30">
+
+pair<int,int> solve(int arr[],int n){
+    pair<int,int> p;
+    if(n==1){
+        p.first=arr[0];
+        p.second=arr[0];
+    }
+    if(arr[0]>arr[1]){
+        p.first=arr[0];
+        p.second=arr[1];
+    }
+    else{
+        p.first=arr[1];
+        p.second=arr[0];
+    }
+    for(int i=2;i<n;i++){
+        if(arr[i]<p.second)
+            p.second=arr[i];
+        if(arr[i]>p.first)
+            p.first=arr[i];
+    }
+    return p;
+}
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(n^2)</p>
+            <p>Sint fugiat error officia molestias temp Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus adipisci libero voluptate accusantium optio ad assumenda iusto aperiam eum eos. sa eum dolor.</p>
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
