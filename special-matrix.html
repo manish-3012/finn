@@ -56,12 +56,23 @@ one time 2, one time 3 , one time 4. For that we need 6 operations.
 
 
 <h3> Algorithm:</h3>       
-	<p>1. Our first task is to find out the row/column with the maximum sum. Since all the other rows and columns will have to have that same maximum sum only for the matrix to be a special. <br>
-	2. To find out the row/column with the maximum sum, we will traverse through the matrix and find out the sum of row and column elements, <br>
-	NOTE: for any particular i and j, matrix[i][j] will give us the summation of row while matrix[j][i] will give us the summation of column :) <br>
-Finally we will take the maximum among the maxRow and maxCol, and then return (maxrc*n) - s, where maxrc is the overall maximum among all the rows and columns, while s is the sum of all elements of the array :) <br>
-            </p>
-            <solid><h3>CODE: </h3></solid>
+<ul>
+    <ol>
+        <li>
+            Our first task is to find out the row/column with the maximum sum. Since all the other rows and columns will have to have that same maximum sum only for the matrix to be a special.
+        </li>
+        <li>
+            2. To find out the row/column with the maximum sum, we will traverse through the matrix and find out the sum of row and column elements, 
+            NOTE: for any particular i and j, matrix[i][j] will give us the summation of row while matrix[j][i] will give us the summation of column :)
+        
+        </li>
+        <li>
+            3. Finally we will take the maximum among the maxRow and maxCol, and then return (maxrc*n) - s, where maxrc is the overall maximum among all the rows and columns, while s is the sum of all elements of the array :)
+
+        </li>
+    </ol>
+</ul>
+	<h3>CODE:</h3>
             <textarea name="" id="" cols="30" rows="20">
 
 int solve(vector<vector<int> > mat, int n)
