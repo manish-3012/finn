@@ -54,7 +54,7 @@ min = 1, max =  10000
                 contain the minimum element :)<br>
             </p>
             <h3>CODE: </h3>
-            <textarea name="" id="" cols="30" rows="30">
+            <textarea name="" id="" cols="22" rows="30">
 
 pair<int,int> solve(int arr[],int n){
     pair<int,int> p;
@@ -82,8 +82,110 @@ pair<int,int> solve(int arr[],int n){
             <h3>Complexities: </h3>
             <p><em>Time Complexity: </em> O(n)
             <br>
-            <em>Space Complexity: </em> O(n^2)</p>
-            <p>Sint fugiat error officia molestias temp Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus adipisci libero voluptate accusantium optio ad assumenda iusto aperiam eum eos. sa eum dolor.</p>
+            <em>Space Complexity: </em> O(1)</p>
+            <h3>Approach 2(Compare in Pairs)</h3>
+            <p>Algorithm:<br>
+                1. If there are odd number of elements, then initialize min and max both as the first element.<br>
+                2. If even number of elements are there, then store the greater among, the first and second element in the p.first and smaller one in p.second.<br>
+                3. Now select the elements in pair, check the greater among the two selected element, with p.first and the smaller one with p.second :)<br>
+                4. At the end, p.first would contain the maximum element, and p.second would 
+            contain the minimum element :)<br>
+            </p>
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="40" rows="30">
+
+pair<int,int> solve(int arr[],int n){
+    pair<int,int> p;
+    if(n==1){
+        p.first=arr[0];
+        p.second=arr[0];
+    }
+    if(n&1){
+        p.first=arr[0];
+        p.second=arr[0];
+    }
+    else{
+        if(arr[0]>arr[1]){
+            p.first=arr[0];
+            p.second=arr[1];
+        }
+        else{
+            p.first=arr[1];
+            p.second=arr[0];
+        }
+    }
+    for(int i=2;i<n;i+=2){
+        if(arr[i]>arr[i+1]){
+            if(arr[i]>p.first)
+                p.first=arr[i];
+    
+            if(arr[i+1]<p.second)
+                p.second=arr[i+1];
+        }
+        else{
+            if(arr[i+1]>p.first)
+                p.first=arr[i+1];
+    
+            if(arr[i]<p.second)
+                p.second=arr[i];
+        }
+    }
+    return p;
+}       
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+            <h3>Approach 3(Recursion)</h3>
+            <p>Algorithm:<br>
+                1. If there is only one element, simply store the first element in both the element of the pair.<br>
+                2. If there are just two elements, then do nothing but store the greater one in p.first and smaller one in p.second :)<br>
+                3. Now if there are more than two elements, then we will recurse, for that we will select the left half and right half of the array, which will give us two pairs namely, pl and pr, respectively from left and right.<br>
+                4. Now simply store the maximum among the pl.first and pr.first in the final p.first, while store the minimum among the pl.second and pr.second in the final p.second :)<br>
+            </p>
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="35" rows="30">
+
+pair<int,int> solve(int arr[],int l,int r){
+    pair<int,int> p,pl,pr;
+    if(l==r){              //only one element
+        p.first=arr[l];
+        p.second=arr[r];
+        return p;
+    }                     //more than one element
+    if(r==(l+1)){
+        if(arr[r]>arr[l]){
+            p.first=arr[r];
+            p.second=arr[l];
+        }
+        else{
+            p.first=arr[l];
+            p.second=arr[r];
+        } 
+        return p;    
+    }
+    int mid=(l+r)/2;
+    pl=solve(arr,l,mid);
+    pr=solve(arr,mid+1,r);
+    if(pl.first>pr.first)
+        p.first=pl.first;
+    else
+        p.first=pr.first;
+
+    if(pl.second<pr.second)
+        p.second=pl.second;
+    else
+        p.second=pr.second;
+
+    return p;
+}
+                    
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(log n)<br>As the stack space will be filled for the maximum height of the tree formed during recursive calls same as a binary tree.</p>
         </div>
     </div>
     <div class="home-articles  font1">
