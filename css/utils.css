@@ -42,8 +42,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin: 50px;
     font-weight: 550;
 }
 
@@ -95,5 +94,5 @@
 
 h3{
     text-decoration: solid;
-    
+
 }
