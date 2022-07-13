@@ -52,12 +52,12 @@ one time 2, one time 3 , one time 4. For that we need 6 operations.
             </textarea>
             <a href="https://practice.geeksforgeeks.org/problems/make-matrix-beautiful-1587115620/1/"><button class="btn">Give it a try :)</button></a>
             <p>
-                We will simply calculate, the maximum sum possible from all the rows as well as column. We will also find the total sum of all the elements of the given matrix, from the maximum possible sum, from all the row and column we will calculate the final ans. <br>
+                We will simply calculate, the maximum sum possible from all the rows as well as column. We will also find the total sum of all the elements of the given matrix, from the maximum possible sum, from all the row and column we will calculate the final ans. </p>
 
 
-<solid> Algorithm:</solid>               
-	1. Our first task is to find out the row/column with the maximum sum. Since all the other rows and columns will have to have that same maximum sum only for the matrix to be a special. <br>
-	2. To find out the row/column with the maximum sum, we will traverse through the matrix and find out the sum of row and column elements, 
+<h3> Algorithm:</h3>       
+	<p>1. Our first task is to find out the row/column with the maximum sum. Since all the other rows and columns will have to have that same maximum sum only for the matrix to be a special. <br>
+	2. To find out the row/column with the maximum sum, we will traverse through the matrix and find out the sum of row and column elements, <br>
 	NOTE: for any particular i and j, matrix[i][j] will give us the summation of row while matrix[j][i] will give us the summation of column :) <br>
 Finally we will take the maximum among the maxRow and maxCol, and then return (maxrc*n) - s, where maxrc is the overall maximum among all the rows and columns, while s is the sum of all elements of the array :) <br>
             </p>
