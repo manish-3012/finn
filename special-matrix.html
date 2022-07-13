@@ -33,72 +33,56 @@
     <hr class="postart max-width-1 m-auto">
     <div class="array-articles font1">
         <div class="notes">
-            <h1>Special Matrix</h1>
-            <p>Lorem ipsum dolor, sit amet cons Perferendis modi ratione ab quia pariatur, consequuntur nam dignissimos odit doloribus? Eveniet commodi rem itaque libero? Voluptatem optio dicta tenetur quas inventore dolorum. </p>
-            <img src="img/code4.png" alt="">
-            <p>Sint fugiat error officia molestias temp Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus adipisci libero voluptate accusantium optio ad assumenda iusto aperiam eum eos. sa eum dolor.</p>
-            <p>Sint fugiat error officia molestias temp Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus adipisci libero voluptate accusantium optio ad assumenda iusto aperiam eum eos. sa eum dolor.</p>
+            <h1>Make Beautiful Matrix 🔮</h1>
+            <p>A matrix is called special if the sum of each row and the sum of each column is the same. </p>
+            <p>Given a square matrix AA of dimensions N×NN×N, find the minimum number of operations required to make it special. In one operation you can choose any number in the matrix and increase it by 1.</p>
+            <textarea name="" id="" cols="30" rows="30">
+                <span style="font-size: 18px; user-select: auto;"><strong style="user-select: auto;">Input</strong>:
+                    N = 3
+                    matrix[][] = {{1, 2, 3},
+                    &nbsp;             {4, 2, 3},
+                    &nbsp;             {3, 2, 1}}
+                    <strong style="user-select: auto;">Output</strong>: 6
+                    <strong style="user-select: auto;">Explanation</strong>:
+                    Original matrix is as follows:
+                    1 2 3
+                    4 2 3
+                    3 2 1
+                    We need to make increment in such a way 
+                    that each row and column has one time 2, 
+                    one time 3 , one time 4. For that we 
+                    need 6 operations.
+                </span>
+            </textarea>
+            <a href="https://practice.geeksforgeeks.org/problems/make-matrix-beautiful-1587115620/1/"><button class="btn">Give it a try :)</button></a>
             <h3>CODE: </h3>
             <textarea name="" id="" cols="30" rows="30">
-#include<bits/stdc++.h>
-using namespace std;
 
-bool isPerfectSquare(long double x)
+int solve(vector<vector<int> > mat, int n)
 {
-
-    if (x >= 0) {
-    
-        long long sr = sqrt(x);
-            
-        
-        return (sr * sr == x);
+    int mr= INT_MIN;
+    int mc=INT_MIN;
+    int s=0;
+    for(int i=0;i<n;i++){
+        int r=0,c=0;
+        for(int j=0;j<n;j++){
+            r+=mat[i][j];
+            c+=mat[j][i];
+            s+=mat[i][j];
+        }
+        mr=max(mr,r);
+        mc=max(mc,c);
     }
-    
-    return false;
+    int MAX=max(mr,mc);
+    return (MAX*n) - s;
 }
 
-int main()
-{
-    int n,f;
-    cin>>n;
-    int arr[n];
-    f=1;
-    for(int i=0;i<n;i++)
-    {
-        cin>>arr[i];
-    }
-    if(n<2)
-    {
-        f=0;
-    }
-    else
-    {
-        for(int i=0;i<n-1;i++)
-        {
-            if(!isPerfectSquare(arr[i]+arr[i+1]))
-            f=0;
-        }
-    }    
-    if(f==1)
-    {
-        cout<<"YES"<<endl;
-        for(int i=0;i<n;i++)
-        {
-            cout<<arr[n-1-i]<<" ";
-        }
-    }
-    else
-    {
-        cout<<"NO";
-    }
-    return 0;
-}
             </textarea>
             <h3>Complexities: </h3>
             <p><em>Time Complexity: </em> O(n)
             <br>
-            <em>Space Complexity: </em> O(n^2)</p>
-            <p>Sint fugiat error officia molestias temp Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus adipisci libero voluptate accusantium optio ad assumenda iusto aperiam eum eos. sa eum dolor.</p>
+            <em>Space Complexity: </em> O(1)</p>
+            
         </div>
     </div>
     <div class="home-articles  font1">
