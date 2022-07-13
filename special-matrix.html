@@ -36,7 +36,7 @@
             <h1>Make Beautiful Matrix 🔮</h1>
             <p>A matrix is called special if the sum of each row and the sum of each column is the same. </p>
             <p>Given a square matrix AA of dimensions N×NN×N, find the minimum number of operations required to make it special. In one operation you can choose any number in the matrix and increase it by 1.</p>
-            <textarea name="" id="" cols="13" rows="15">
+            <textarea name="" id="" cols="15" rows="13">
 N = 3
 matrix[][] = {{1, 2, 3},
 &nbsp;             {4, 2, 3},
@@ -51,8 +51,18 @@ We need to make increment in such a way that each row and column has
 one time 2, one time 3 , one time 4. For that we need 6 operations.
             </textarea>
             <a href="https://practice.geeksforgeeks.org/problems/make-matrix-beautiful-1587115620/1/"><button class="btn">Give it a try :)</button></a>
-            <h3>CODE: </h3>
-            <textarea name="" id="" cols="30" rows="15">
+            <p>
+                We will simply calculate, the maximum sum possible from all the rows as well as column. We will also find the total sum of all the elements of the given matrix, from the maximum possible sum, from all the row and column we will calculate the final ans. <br>
+
+
+<solid> Algorithm:</solid>               
+	1. Our first task is to find out the row/column with the maximum sum. Since all the other rows and columns will have to have that same maximum sum only for the matrix to be a special. <br>
+	2. To find out the row/column with the maximum sum, we will traverse through the matrix and find out the sum of row and column elements, 
+	NOTE: for any particular i and j, matrix[i][j] will give us the summation of row while matrix[j][i] will give us the summation of column :) <br>
+Finally we will take the maximum among the maxRow and maxCol, and then return (maxrc*n) - s, where maxrc is the overall maximum among all the rows and columns, while s is the sum of all elements of the array :) <br>
+            </p>
+            <solid><h3>CODE: </h3></solid>
+            <textarea name="" id="" cols="30" rows="20">
 
 int solve(vector<vector<int> > mat, int n)
 {
