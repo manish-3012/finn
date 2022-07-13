@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/topic.css"> 
+    <link rel="stylesheet" href="css/post.css"> 
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Find maximum subarray sum</h1>
+            <p>Given an array of integers, the task is to find the maximum subarray sum possible of all the non-empty subarrays.</p>
+            <textarea name="" id="" cols="15" rows="5">
+Input: [-3, -4, 5, -1, 2, -4, 6, -1]
+Output: 8
+            </textarea>
+            <a href="https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1/"><button class="btn">Give it a try :)</button></a>
+            <p>The naïve approach could be to use two for loops and for every subarray check if it is the maximum sum possible.</p>
+
+<p>Kadane's algorithm is an iterative dynamic programming approach, in this approach we calculate the sum till any particular index using the sum till the previous index of that particular index, sounds confusing, right??😬 Don’t worry, below steps will help :) </p>
+
+
+<h3>Algorithm:</h3>
+<p>
+	1. We will initialise two variables,  one will keep the temp sum till that index, while other will be holding out final answer, that is the maximum Sum ever achieved. <br>
+	2. Now the point to be noted is that, temp would never like to get negative because if it's gonna be less than 0, then there is no point of it. So if we have a subarray as [1, 2, 1] with temp sum as 4, but the next element is -5, making the sub-array as [1, 2, 1, -5] with sum as -1. In such cases, temp would simple become equal to zero, and it won't select the element -5, as selecting that would only make him smaller (he is wise 👀) <br>
+	3. While maxSum, would simply keep track of the maximum value ever achieved by the temp sum, and will return it as the answer :)</p>
+    
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="22" rows="30">
+
+pair<int,int> solve(int arr[],int n){
+    pair<int,int> p;
+    if(n==1){
+        p.first=arr[0];
+        p.second=arr[0];
+    }
+    if(arr[0]>arr[1]){
+        p.first=arr[0];
+        p.second=arr[1];
+    }
+    else{
+        p.first=arr[1];
+        p.second=arr[0];
+    }
+    for(int i=2;i<n;i++){
+        if(arr[i]<p.second)
+            p.second=arr[i];
+        if(arr[i]>p.first)
+            p.first=arr[i];
+    }
+    return p;
+}
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+            <h3>Circular Kadane</h3>
+            <p>What if we were allowed to take a circular sub-array? For example we are given with an array of { 11, 12, -20, -5, -13, 10 }, so in this case the maximum sum sub-array will be from 10 to 12 (taken in a circular form). </p>
+
+            <p>One naïve approach to solve this is to double the array in a wrap-around fashion, i.e. after the last index, the array will start storing the elements back from the beginning :) 
+                
+                <p>But to make sure that we don’t include the same element again and again, we would put a restriction upon the size of the array. The size of the array would never exceed the original size :)
+                
+                    <p>Let's understand this with an example :) <br>
+                arr = { 0, 1, 2, 3, 4 }
+                
+                <h3>Steps:</h3> 
+                <p>1. First of all we will select the original array and find out the maxSum possible from all the sub-array (normal kadane)
+                    2. Now we will take the array as { 1, 2, 3, 4, 0} and again repeat the above step.
+                    3. Similarly we will repeat the above steps for {2, 3, 4, 0, 1}, { 3, 4, 0, 1, 2} and { 4, 0, 1, 2, 3}. 
+                    4. Maximum among all will be our final answer :)
+                </p>
+                
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="30" rows="30">
+
+int solve(vector<int> v){
+    int n=v.size();
+    int curSum=0;
+    int maxSum=INT_MIN;
+    for(int i=0;i<n;i++){
+        curSum=max(curSum+v[i],v[i]);
+        maxSum=max(curSum,maxSum);
+    }
+    return maxSum;
+} 
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> v, cur;
+    for(int i=0;i<n;i++){
+        int a;
+        cin>>a;
+        v.push_back(a);
+    }
+    int ans=INT_MIN;
+    for(int i=0;i<n;i++){
+        cur.clear();
+        for(int j=i;j<n+i;j++)
+            cur.push_back(v[j%n]);
+        ans=max(ans,solve(cur));
+    }
+    cout<<ans;
+    return 0;
+}
+                     
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+            <h3>Approach 3(Recursion)</h3>
+            <p>Algorithm:<br>
+                1. If there is only one element, simply store the first element in both the element of the pair.<br>
+                2. If there are just two elements, then do nothing but store the greater one in p.first and smaller one in p.second :)<br>
+                3. Now if there are more than two elements, then we will recurse, for that we will select the left half and right half of the array, which will give us two pairs namely, pl and pr, respectively from left and right.<br>
+                4. Now simply store the maximum among the pl.first and pr.first in the final p.first, while store the minimum among the pl.second and pr.second in the final p.second :)<br>
+            </p>
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="35" rows="30">
+
+pair<int,int> solve(int arr[],int l,int r){
+    pair<int,int> p,pl,pr;
+    if(l==r){              //only one element
+        p.first=arr[l];
+        p.second=arr[r];
+        return p;
+    }                     //more than one element
+    if(r==(l+1)){
+        if(arr[r]>arr[l]){
+            p.first=arr[r];
+            p.second=arr[l];
+        }
+        else{
+            p.first=arr[l];
+            p.second=arr[r];
+        } 
+        return p;    
+    }
+    int mid=(l+r)/2;
+    pl=solve(arr,l,mid);
+    pr=solve(arr,mid+1,r);
+    if(pl.first>pr.first)
+        p.first=pl.first;
+    else
+        p.first=pr.first;
+
+    if(pl.second<pr.second)
+        p.second=pl.second;
+    else
+        p.second=pr.second;
+
+    return p;
+}
+                    
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(log n)<br>As the stack space will be filled for the maximum height of the tree formed during recursive calls same as a binary tree.</p>
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
