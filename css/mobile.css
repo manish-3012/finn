@@ -148,6 +148,10 @@
         margin: 20px;
         font-size: 15px;
     }
+    .notes pre{
+        margin: 20px;
+        font-size: 15px;
+    }
 
     .contact-right img{
         height: 100px;
@@ -226,6 +230,10 @@
     }
 
     .notes p{
+        margin: 20px;
+        font-size: 12px;
+    }
+    .notes pre{
         margin: 20px;
         font-size: 12px;
     }
