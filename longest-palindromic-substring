@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/topic.css"> 
+    <link rel="stylesheet" href="css/post.css"> 
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Longest Palindromic Substring</h1>
+            <p>A matrix is called special if the sum of each row and the sum of each column is the same. </p>
+            <p>Given a square matrix AA of dimensions N×NN×N, find the minimum number of operations required to make it special. In one operation you can choose any number in the matrix and increase it by 1.</p>
+            <textarea name="" id="" cols="15" rows="3">
+<b>Input:</b> s = "babad"
+<b>Output:</b> "bab"
+Explanation: "aba" is also a valid answer.  
+</textarea>
+            <a href="hhttps://leetcode.com/problems/longest-palindromic-substring/"><button class="btn">Give it a try :)</button></a>
+            <p>
+                Given a string s, return the longest palindromic substring in s. <br> <br>
+
+<h3><b>Approach 1 (Brute Force)</b></h3>
+<b>Algorithm:</b> <br>
+The simple approach is to check each substring whether the substring is a palindrome or not. To do this first, run three nested loops, the outer two loops pick all substrings one by one by fixing the corner characters, the inner loop checks whether the picked substring is palindrome or not. 
+            </p>
+           
+	<h3>CODE:</h3>
+            <textarea name="" id="" cols="30" rows="28">
+bool isPalin(string s){
+    int n=s.size();
+    int i=0, j=n-1;
+    while(i<=j){
+        if(s[i]!=s[j])
+            return 0;
+        i++;j--;
+    }
+    return 1;
+}
+
+string longestPalindrome(string s) {
+    int n=s.size();
+    string ans="";
+    ans+=s[0];
+    int maxl=1;  //first character is itself a palindrome
+    for(int i=0;i<n;i++){
+        string sub;
+        for(int j=i;j<n;j++){
+            sub+=s[j];
+            if(isPalin(sub) && (j-i+1)>maxl){
+                maxl=j-i+1;
+                ans=sub;
+            }
+        }
+    }
+    return ans;
+}
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n^3)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+         
+<h3><b>Approach 2(Dynamic Programming)</b></h3>
+<p>The time complexity can be reduced by storing results of sub-problems.</p>
+<b>Algorithm:</b> <br>
+1. Maintain a boolean table[n][n] that is filled in bottom up manner. <br> <br>
+2. The value of table[i][j] is true, if the substring is palindrome, otherwise false. <br> <br>
+3. To calculate table[i][j], check the value of table[i+1][j-1], if the value is true and str[i] is same as str[j], then we make table[i][j] true. <br> <br>
+4. Otherwise, the value of table[i][j] is made false. <br> <br>
+5. We have to fill table previously for substring of length = 1 and length =2 because 
+as we are finding , if table[i+1][j-1] is true or false , so in case of <br>
+(i) length == 1 , lets say i=2 , j=2 and i+1,j-1 doesn’t lies between [i , j] 
+(ii) length == 2 ,lets say i=2 , j=3 and i+1,j-1 again doesn’t lies between [i , j]. <br> 
+            </p>
+           
+	<h3>CODE:</h3>
+            <textarea name="" id="" cols="30" rows="36">
+
+string longestPalindrome(string s) {
+    int n=s.size();
+    string ans;
+    int dp[n][n];
+    memset(dp, 0, sizeof(dp));
+    int maxl=1;  //first character is itself a palindrome
+    //since a single character is always palindrome
+    for(int i=0;i<n;i++)
+        dp[i][i]=1;
+    // strings with length 2 is handled differently
+    // since there (i+1) & (j-1) is invalid for them
+    int start=0;
+    for(int i=0;i<n;i++){
+        if(s[i]==s[i+1]){
+            dp[i][i+1]=1;
+            start=i;
+            maxl=2;
+        }
+    }
+    //for substring of length greater than 2
+    //k is the length of the sub-string
+    for(int k=3;k<=n;k++){  
+        for(int i=0;i<n-k+1;i++){
+            int j=i+k-1;
+            if(dp[i+1][j-1]==1 && s[i]==s[j]){
+                dp[i][j]=1;
+                if(k>maxl){
+                    start=i;
+                    maxl=k;
+                }
+            }
+        }
+    }
+    // cout<<start<<" "<<maxl<<endl;
+    ans=s.substr(start,maxl);
+    return ans;
+}
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+         
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
