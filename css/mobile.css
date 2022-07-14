@@ -138,10 +138,9 @@
         max-width: 100vw;
     }
 
-    textarea {
+    .notes textarea {
         font-size: 10px;
     }
-    
     
     .box img{
         height: 100px;
