@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/topic.css"> 
+    <link rel="stylesheet" href="css/post.css"> 
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Longest Palindromic Substring</h1>
+            <p>The count-and-say sequence is a sequence of digit strings defined by the recursive formula: <br><br>
+
+                countAndSay(1) = "1"<br>
+                countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1), which is then converted into a different digit string. <br> <br>
+                Given a positive integer n, return the nth term of the count-and-say sequence. <br> 
+            
+            </p>
+            <textarea name="" id="" cols="15" rows="2">
+Input: 4 
+Output:"1211"  
+</textarea>
+            <a href="hhttps://leetcode.com/problems/longest-palindromic-substring/"><button class="btn">Give it a try :)</button></a>
+            <h3><b>Approach 1 (Iterative)</b></h3>
+            <p><b>Intuition:</b> <br>
+                For n=1, it would be simple 1, while for n=2, it would be one 1. Sounds confusing right😬 don't worry, we have got your back🙃 <br><br>
+
+                N = 1,  :   "1"<br>
+                N = 2  :   "11"           //since for n = 1, there is only one "1" so 1 1, got it??<br>
+                
+                Further, <br>
+                N = 3  :   "21"     //since for n = 2, there are two ones "11" so 2 1, see.. easy na??<br><br>
+                
+                <b>Algorithm:</b><br>
+                    1. Firstly we will store for the base cases that is for n=1, "1" and for n=2, "11". <br><br>
+                    2. Now we will set the str, which gonna be our final answer as "11", and since we are already done till n=2, we will start iterating from i=2, since we are already done for n=0, 1. <br><br>
+                    3. We will keep a temp string, which iterate through the current temp, and count the number of identical digits occurring together.<br><br>
+                    4. To iterate through the current temp, follow the below steps:<br>
+                        a. Set the count as 1, since all digits occurs atleast once.<br>
+                        b. Now if the digit is same as the next digits simply increase the counter<br>
+                        c. While if the digits are not same, then we will store the temp as well as the character in our temp, and then start iterating through the remaining digits in str.<br>
+                        d. Once we are done traversing through the str, we will update the str into the new temp value :)<br><br>
+                
+                <b>Brainstorm:</b> 🤯<br>
+                Why we added $ at the end of the string str? <br>
+                Whenever we get a character that is unequal to the previous character, we add the previous add our answer for the previous number to the string t. So for the last number in the string we won't get any inequality and hence it won't get added to string t. This is why we added a random character at the end so that random character becomes unequal to the last character of the actual string and we could get the desired answer
+                
+            </p>
+           
+	<h3>CODE:</h3>
+            <textarea name="" id="" cols="30" rows="30">
+string countAndSay(int n) {
+    if(n==1)
+        return "1";
+    if(n==2)
+        return "11";
+    string str="11";  //storing till n=2
+    string tmp;
+    for(int i=2;i<n;i++){
+        str+='$';
+        tmp="";
+        int c=1;   // all digits occurs atleat once
+        int j=0;   // to iterate over str
+        
+        // from here we start calculating the next str
+        char x=str[j];
+        while(j<(str.size()-1)){
+            if(x!=str[j+1]){
+                tmp+=to_string(c);
+                tmp+=x;
+                c=1;
+                x=str[j+1];
+            }
+            else
+                c++;
+            j++;
+        }
+        str=tmp;  //updating str as temp
+    }
+    return str;
+}        
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n*l)   (l is the max length of the string)
+            <br>
+            <em>Space Complexity: </em> O(n)</p>
+         
+<h3><b>Approach 2(Recursive)</b></h3>
+<p>The time complexity can be reduced by using the recursive call. We could make a recursive call for (n-1) an now we have string till the (n-1)th iteration, since recursion works like magic. Dont think about how we got the string till the (n-1)th element. Now since we have string till the (n-1)the iterations, so now we will use that string to get the string for the nth element, using the similar approach we used in our iterative solution <br>
+</p>
+           
+	<h3>CODE:</h3>
+            <textarea name="" id="" cols="30" rows="20">
+string countAndSay(int n) {
+    if(n==1)
+        return "1";
+    if(n==2)
+        return "11";
+    string str=countAndSay(n-1);
+    string tmp="";
+    int i=0;
+    while(i<str.size()){
+        char digit=str[i];
+        int c=0;
+        // iterating till the digits are same
+        while(i<str.length() && str[i]==digit){
+            c++;i++;
+        }
+        tmp+=to_string(c);
+        tmp+=digit;
+    }
+    return tmp;
+}
+                
+            </textarea>
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
