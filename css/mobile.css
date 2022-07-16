@@ -7,6 +7,10 @@
         flex-direction: column;
     }
 
+    .prob{
+        min-width: 60vw;
+    }
+
     .nav-left{
         display:flex;
         flex-direction: column;
