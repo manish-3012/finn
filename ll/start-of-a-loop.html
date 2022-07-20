@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/topic.css"> 
+    <link rel="stylesheet" href="css/post.css"> 
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Start of a Loop 🔁</h1>
+            <p>Given a Linked List with a loop, determine the node from where the loop has started :)</p>
+                <textarea name="" id="" cols="15" rows="5">
+Input:
+1 -> 2 -> 3 -> 4 -> 5
+Output: 
+5 -> 4 -> 3 -> 2 -> 1
+                </textarea>
+                <a href="ll/detect-cycle.html"><button class="btn">Read this first :)</button></a>
+                <a href="https://practice.geeksforgeeks.org/problems/make-matrix-beautiful-1587115620/1/"><button class="btn">Give it a try :)</button></a>
+                
+                <b>Algorithm:</b> <br>
+                1. Firstly find the collision node, using the above approach. <br> <br>
+                2. Once we find the collision node, we declare one more pointer as entry pointer, which will point to the starting node of the linked list. <br> <br>
+                3. Now we will move the entry pointer and the slow pointer simultaneously, until they collide.  <br> <br>
+                4. The node, where the entry pointer and slow pointer collide will be the start of the node. <br> <br>
+            </p>
+            
+            <p>Why the entry pointer and the slow pointer are bound to meet at the start of the loop? <br>
+                <img src="img/ll2.png" alt="">
+                In this figure, let us assume that, the fast and slow pointer meet at node k.<br><br>
+                Now the distance moved by slow and fast pointers are :<br>
+                    1. Slow = l1 + l2
+                    2. Fast = l1 + nc + l2     (let's say that, the fast pointer traversed the loop n times)<br><br>
+                
+                Now since fast and slow pointer has met, and also the fast pointer move twice as fast as the slow pointer, thus the equation will be.<br>
+                
+                2 (l1 + l2) = l1 + l2 + nc<br>
+                L1 + L2 = nc<br>
+                
+                L1 = (nc - L2)                          i.e. (a = b)
+            </p>
+            <h3>CODE:</h3>
+            <textarea name="" id="" cols="30" rows="20">
+
+ListNode *detectCycle(ListNode *head) {
+    if(!head || !head->next)
+        return NULL;
+    ListNode* slow=head;
+    ListNode* fast=head;
+    while(fast && fast->next && fast->next->next){
+        slow=slow->next;
+        fast=fast->next->next;
+        if(slow==fast){
+            ListNode* entry = head;
+            while(entry!=slow){
+                entry=entry->next;
+                slow=slow->next;
+            }
+            return entry;
+        }
+    }
+    return NULL;
+}              
+
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+            
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>

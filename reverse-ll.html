@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/topic.css"> 
+    <link rel="stylesheet" href="css/post.css"> 
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Reverse a Linked List 🔀</h1>
+            <p>Given a Linked List, reverse all the node pointers such that the end of the linked list becomes the first element and vice versa.</p>
+            <textarea name="" id="" cols="15" rows="5">
+Input:
+1 -> 2 -> 3 -> 4 -> 5
+Output: 
+5 -> 4 -> 3 -> 2 -> 1
+</textarea>
+            <a href="https://practice.geeksforgeeks.org/problems/make-matrix-beautiful-1587115620/1/"><button class="btn">Give it a try :)</button></a>
+<p>In short we could say that for any particular pointer we will keep a track of previous and next pointer along with the current pointer which will be helping us in the traversal of the linked list :) </p>
+
+<p>So firstly we will keep a track of the next pointer of the current pointer as we are going to break the link after the current pointer. For the current pointer we will simply point its next to the previous pointer and then make current pointer equal to the next pointer. 
+                 <br> <br>
+
+<b>Algorithm:</b> <br>
+1. We will declare three pointers, namely *curr, *prev and *nex, where *curr will help us in traversing through the linked list. <br><br>
+2. While *prev will keep a track of previous of the current and *nex will keep a track of the next pointer of the *curr.<br><br>
+3. Point *nex to the curr->next as we will be breaking the link from the *curr pointer onwards.<br><br>
+4. Now break the link and point curr->next to the previous pointer i.e. *prev.<br><br>
+5. Now we will simply move forward *curr and *prev.<br><br>
+6. Repeat steps 3-6 till current does NOT become equal to NULL. <br><br>
+Happy Coding :)<br></p>
+           
+	<h3>CODE:</h3>
+            <textarea name="" id="" cols="30" rows="20">
+
+struct Node* reverseList(struct Node *head)
+{
+    struct Node *curr=head;
+    struct Node *prev=NULL, *nex=NULL;
+
+    while(curr !=NULL){
+        nex=curr->next;  //move forward next, as we gonna break the link afterwards
+        curr->next=prev;  //link broken from the next node
+        prev=curr;            //move forward prev
+        curr=nex;           //move forward curr
+    }
+    return prev;
+}                
+
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+            
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
