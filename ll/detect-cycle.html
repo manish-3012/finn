@@ -39,11 +39,9 @@
                 For example, if the input were given that head = [1, 3, 2, 5] and pos = 1, the linked list would look like this:
                 </p>
 <img src="../img/ll1.png" alt="example" >
-            <textarea name="" id="" cols="15" rows="5">
-</textarea>
             <a href="https://practice.geeksforgeeks.org/problems/make-matrix-beautiful-1587115620/1/"><button class="btn">Give it a try :)</button></a>
             <h3>Approach 1 (Hash Map)</h3>
-<p>One way to detect the loop can be using map. We can store the count of the nodes appearing, in our linked list. If we encounter any node twice, then its frequency will be increased by 1, i.e. it will become 2.</p>
+<p>One way to detect the loop can be using map. We can store the count of the nodes appearing, in our linked list. If we encounter any node twice, then its frequency will be increased by 1, i.e. it will become 2. <br><br>
 
 <b>Algorithm:</b> <br>
 1. We will declare three pointers, namely *curr, *prev and *nex, where *curr will help us in traversing through the linked list. <br><br>
@@ -55,7 +53,7 @@
 Happy Coding :)<br></p>
            
 	<h3>CODE:</h3>
-            <textarea name="" id="" cols="30" rows="20">
+            <textarea name="" id="" cols="30" rows="12">
 bool detectLoop(Node* head)
 {
     Node *t1=head;
@@ -68,7 +66,6 @@ bool detectLoop(Node* head)
     }
     return false;
 }               
-
             </textarea>
             <h3>Complexities: </h3>
             <p><em>Time Complexity: </em> O(n)
@@ -77,16 +74,16 @@ bool detectLoop(Node* head)
             <h3>Approach 2 (Hare🦌 and Tortoise🐢 Algorithm)</h3>
 <p>The idea behind the algorithm is that, if you have two pointers in a linked list, one moving twice as fast (the hare) than the other (the tortoise), then if they intersect, there is a cycle in the linked list. If they don't intersect, then there is no cycle.</p>
 
-   <p> <b>Intuition:-</b> If there is no loop in the linked list, then the two pointers will never meet, while if there is a loop in the linked list then they would surely meet. As the hare is moving twice as fast as the tortoise.</p>
+   <p> <b>Intuition:-</b> If there is no loop in the linked list, then the two pointers will never meet, while if there is a loop in the linked list then they would surely meet. As the hare is moving twice as fast as the tortoise. <br> <br>
     
     <b>Why the collision is must to happen?</b> <br>
     
-    Imagine there is a tunnel which has a cycle, i.e. a tunnel in the shape of 9. <br> <br>
+    Imagine there is a tunnel which has a cycle, i.e. a tunnel in the shape of 9.  </p>
     
     <p>If we start traversing in such a tunnel, we would be stuck forever, and would never come to an end. But is there any way we could detect if there is a cycle in the tunnel??
     Yess! Indeed. Let us send two friends inside the tunnel Sodhi and Bhide, now Sodhi being enthusiastic, walks much faster as compared to Bhide. Now if they start traversing the tunnel at the same point of time. They will meet for sure. Why?? 🤔 <br><br>
     
-    One answer could be relative speed for sure. If we stop Bhide using the concept of relative speed, Sodhi will still be moving, since he is moving at comparatively faster speed. Thus the collision is must to happen in case of hare and tortoise as well :)</p>
+    One answer could be relative speed for sure. If we stop Bhide using the concept of relative speed, Sodhi will still be moving, since he is moving at comparatively faster speed. Thus the collision is must to happen in case of hare and tortoise as well :) <br><br>
 
 <b>Algorithm:</b> <br>
 1. The first thing I'll do is check if head exists, and if head.next exists. If neither exist, then there is no cycle, and I'll immediately return false.<br><br>
@@ -102,7 +99,7 @@ bool detectLoop(Node* head)
 Finally, if the while loop cannot continue because hare and/or hare.next is null, then that means no cycle was ever found, so we can return false. :)<br></p>
            
 	<h3>CODE:</h3>
-            <textarea name="" id="" cols="30" rows="20">
+            <textarea name="" id="" cols="30" rows="12">
 bool detectLoop(Node* head){
     Node *slow = head;
     Node *fast = head;
