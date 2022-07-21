@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Bring Positives Ahead ✌🏻</h1>
+            <p>An array contains both positive and negative numbers in random order. Rearrange the array elements so that all negative numbers appear before all positive numbers.</p>
+            <textarea name="" id="" cols="15" rows="2">
+Input: -12, 11, -13, -5, 6, -7, 5, -3, -6
+Output: -12 -13 -5 -7 -3 -6 11 6 5
+            </textarea>
+            <a href="https://ide.geeksforgeeks.org/"><button class="btn">Give it a try :)</button></a>
+            <p>One way to do this is to sort in an usual way, or maybe just the sort() function, but wait…, using sort function would be O(nlogn), right? Can we come up with something better??🤔</p>
+
+            <p>Well! There is :) <br>
+                How about we use two pointers? one will simply traverse the array, while the other one will start from the 0 index and keep swapping the elements with the negative numbers his buddy pointer come across while traversing the array :)</p>
+                
+            <p>Relax if you still didn’t get it ;)<br>This will help!
+                </p>
+            <h3>Algorithm:</h3><p>
+            	1. Simply point two pointers let's say  Jay and Veeru. Jay will traverse through the array. <br>
+	2. Whenever Jay come across any negative person, I mean negative element. Jay and Veeru will simply swap those persons, as they wanna bring positive person ahead of negative ones lol. So negative one will be sent to the position where Veeru is standing. <br>
+	3. Once Jay has traversed through all the elements, all the negative elements would have come at the beginning :)
+
+        
+            </p>
+            <h3>CODE: </h3>
+            <textarea name="" id="" cols="12" rows="30">
+
+void solve(int arr[],int n){
+    int j=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]<0){
+            if(i!=j){
+                swap(arr[i],arr[j]);
+                j++;
+            }
+        }
+    }
+}
+
+                
+            </textarea>
+            <h3>Complexities: </h3>
+            <p><em>Time Complexity: </em> O(n)
+            <br>
+            <em>Space Complexity: </em> O(1)</p>
+            
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
