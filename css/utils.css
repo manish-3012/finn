@@ -31,7 +31,7 @@
     max-width: 60vw;
 }
 .m-auto{
-    margin:auto;
+     
 }
 
 .btn{
@@ -104,4 +104,12 @@ textarea {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.code{
+    margin: auto;
+}
+
+.code p{
+    margin: 5px 12px;
 }

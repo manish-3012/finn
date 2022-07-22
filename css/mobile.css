@@ -155,6 +155,10 @@
         margin: 20px;
         font-size: 15px;
     }
+
+    .one p{
+        margin: 3px 13px;
+    }
     .notes pre{
         margin: 20px;
         font-size: 15px;
@@ -239,6 +243,10 @@
     .notes p{
         margin: 20px;
         font-size: 12px;
+    }
+
+    .one p{
+        margin: 3px 13px;
     }
     .notes pre{
         margin: 20px;
