@@ -35,18 +35,18 @@
         <div class="notes">
             <h1>Remove kth Node from the End of a List 🔚</h1>
             
-<p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+<p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
     style='font-weight:bold;text-decoration:underline'>Naïve Approach: -</sp
     an></p>
     
-    <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'>We have to
+    <p style=' font-family:"Comic Sans MS";font-size:12.0pt'>We have to
     remove kth node from the end, so we will use the logic that kth node from the
     end will be (n-k)th from the beginning, where n is the total number of nodes.
     So we will firstly count the total number of nodes and then we will traverse
     till the (n-k) th node from the beginning and our answer will be (n-k)th node
     :)</p>
     
-    <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+    <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
     style='font-weight:bold;text-decoration:underline'>Code: -</span></p>
     
     <div style='direction:ltr'>
@@ -147,14 +147,14 @@
     
     </div>
     
-    <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'>&nbsp;</p>
+    <p style=' font-family:"Comic Sans MS";font-size:12.0pt'>&nbsp;</p>
     
-    <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+    <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
     style='font-weight:bold;text-decoration:underline'>Efficient Approach (Using
     two Pointer) : -</span></p>
 
     
-    <p style=' ;font-size:12.0pt'><span style='font-family:"Comic Sans MS"'>Here
+    <p style=' font-size:12.0pt'><span style='font-family:"Comic Sans MS"'>Here
     we will make use of hare </span><span style='font-family:"Segoe UI Emoji"'>&#129420;</span><span
     style='font-family:"Comic Sans MS"'> and tortoise </span>
     
@@ -186,75 +186,75 @@
      <tr>
       <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
       background-color:#002451;vertical-align:top;width:4.7243in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#A1966D'>ListNode</span><span style='color:#B590C4'>* </span><span
       style='color:#859BB5'>removeNthFromEnd</span><span style='color:#979797'>(</span><span
       style='color:#A1966D'>ListNode</span><span style='color:#B590C4'>* </span><span
       style='color:#BC9169'>head</span><span style='color:#979797'>, </span><span
       style='color:#B590C4'>int </span><span style='color:#BC9169'>k</span><span
       style='color:#979797'>){</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; ListNode </span><span style='color:#64A7A7'>*</span><span
       style='color:#979797'>slow</span><span style='color:#64A7A7'>=</span><span
       style='color:#979797'>head, </span><span style='color:#64A7A7'>*</span><span
       style='color:#979797'>fast</span><span style='color:#64A7A7'>=</span><span
       style='color:#979797'>head;</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
       style='color:#979797'>(k</span><span style='color:#64A7A7'>--</span><span
       style='color:#979797'>)</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; fast</span><span
       style='color:#64A7A7'>=</span><span style='color:#E38C92'>fast</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#979797'>;</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>if</span><span
       style='color:#979797'>(fast</span><span style='color:#64A7A7'>==</span><span
       style='color:#BC9169'>NULL</span><span style='color:#979797'>)</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
       style='color:#B590C4'>return </span><span style='color:#E38C92'>slow</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#979797'>;<span style='mso-spacerun:yes'>  </span>remov
     ing the
       first element :)</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
       style='color:#979797'>(fast </span><span style='color:#64A7A7'>&amp;&amp; </span><span
       style='color:#E38C92'>fast</span><span style='color:#979797'>-&gt;</span><span
       style='color:#E38C92'>next</span><span style='color:#979797'>){</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; fast</span><span
       style='color:#64A7A7'>=</span><span style='color:#E38C92'>fast</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#979797'>;</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; slow</span><span
       style='color:#64A7A7'>=</span><span style='color:#E38C92'>slow</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#979797'>;</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;
       &nbsp; }</p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>slow</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#64A7A7'>=</span><span style='color:#E38C92'>slow</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
       style='color:#979797'>;</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
       style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return</span><span
       style='color:#979797'> head;</span></p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>}</p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;</p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>//
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>}</p>
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;</p>
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>//
       move fast pointer k steps ahead. so now it will move </p>
       <p style='margin-top:5pt;margin-bottom:5pt;font-family:"Comic Sans MS";
       font-size:12.0pt;color:#979797'><span style='mso-spacerun:yes'>  �
      �
       </span>// (n-k) steps ahead to reach the secind last pointer</p>
-      <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'><span
+      <p style=' font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'><span
       style='mso-spacerun:yes'>        </span>// so the slow poi
     ill also move
       (n- k) step s</p>
@@ -264,7 +264,7 @@
     
     </div>
             
-    <p style=' ;font-family:"Comic Sans MS";font-size:12.0pt'><span
+    <p style=' font-family:"Comic Sans MS";font-size:12.0pt'><span
     style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
     yellow'>Note: </span>at the end, the fast pointer will be pointing to the
     second last node of the, linked list. So the slow pointer will be pointing to
