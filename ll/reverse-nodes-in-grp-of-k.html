@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Intersection of two Linked Lists 🧩</h1>
+            <a href="https://leetcode.com/problems/intersection-of-two-linked-lists/"><button class="btn">Give it a try :)</button></a>
+            <p style='   font-family:"Comic Sans MS";font-size:   12pt'>Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.</p>
+            
+            <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Brute Force: -</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#303030'><span
+                style='font-weight:bold'>Approach:</span>&nbsp;-</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>Here if we
+                observe properly, a particular node is said to be intersection of the two
+                linked list, if both the nodes are same. Note that, if values of two nodes are
+                equal that doesn't means it's an intersection. While if two linked list
+                starting from a particular node is same, then it signifies that yes we found
+                the intersection of the two linked list.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>So, the
+                process is as follows:-</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>1. Keep any
+                one of the list to check its node present in the other list. Here, we are
+                choosing the second list for this task.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>2. Iterate
+                through the other list. Here, it is the first one.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>3. So in
+                easy terms, we will iterate through the entire t1 for each and every node of
+                t2.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>4. Check if
+                the both nodes are the same. If yes, we got our first intersection node.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>5. If not,
+                continue iteration.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>6. If we did
+                not find an intersection node and completed the entire iteration of the second
+                list, then there is no intersection between the provided lists. Hence,
+                return&nbsp;<span style='font-style:italic'>null</span>.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>Algorithm: -</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>1. Iterate
+                through the second linked list, one by one</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>2. For each
+                possible linked list starting from any point of the second linked list, check
+                whether it is equal to the list with any of the nodes of first linked list as
+                their head.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>3. If the
+                two linked list are equal then, we got the first intersection node</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>4. If not
+                then, return null.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:2.8895in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#B590C4'>int </span><span style='color:#859BB5'>intersectPoint</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>Node</span><span
+                  style='color:#B590C4'>* </span><span style='color:#BC9169'>h1</span><span
+                  style='color:#979797'>, </span><span style='color:#A1966D'>Node</span><span
+                  style='color:#B590C4'>* </span><span style='color:#BC9169'>h2</span><span
+                  style='color:#979797'>)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>{</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(h2){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; Node </span><span
+                  style='color:#64A7A7'>*</span><span style='color:#979797'>t1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>h1;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(t1){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(t1</span><span
+                  style='color:#64A7A7'>==</span><span style='color:#979797'>h2)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  </span><span style='color:#B590C4'>return </span><span style='color:#E38C92'>t1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>data</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>t1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; h2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>NULL</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Time Complexity: </span>O(n*m)</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Space Complexity: </span>O(n)</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Hashing: - </span>To reduce the time complexity, we
+                can use hashing and store the address of the nodes as key (or can use set
+                instead) if that address is already present then we got our first intersection
+                node.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:2.8895in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#B590C4'>int </span><span style='color:#859BB5'>intersectPoint</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>Node</span><span
+                  style='color:#B590C4'>* </span><span style='color:#BC9169'>h1</span><span
+                  style='color:#979797'>, </span><span style='color:#A1966D'>Node</span><span
+                  style='color:#B590C4'>* </span><span style='color:#BC9169'>h2</span><span
+                  style='color:#979797'>)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>{</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; unordered_set</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>Node</span><span
+                  style='color:#64A7A7'>*&gt;</span><span style='color:#979797'> st;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(h1){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>insert</span><span style='color:#979797'>(h1);</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; h1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(h2){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>find</span><span style='color:#979797'>(h2)</span><span
+                  style='color:#64A7A7'>!=</span><span style='color:#E38C92'>st</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>end</span><span
+                  style='color:#979797'>())</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>return </span><span style='color:#E38C92'>h2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>data</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; h2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>NULL</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Time Complexity: </span>O(n+m)</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Space Complexity: </span>O(n)<span
+                style='mso-spacerun:yes'>     </span>//storing nodes of h1 in the 
+                h map</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Optimal Approach</span>:- </p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>1. Take two
+                dummy nodes pointing to the head 1 and head2 respectively. Now find the
+                difference of the length of the two nodes. </p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>2. Whichever
+                linked list is longer, move the head forward by amount of the difference of the
+                length.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>3. Now move
+                both the nodes simultaneously, and return the node where both the nodes
+                collides. </p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>4. If there
+                is no intersection then they will collide at the NULL</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-size:   12pt'><span style='font-weight:bold;
+                font-family:"Comic Sans MS"'>Note: </span><span style='font-family:"Comic Sans MS"'>The
+                logic used here is that, if two nodes has to be equal they must have the same
+                length </span><span style='font-family:"Segoe UI Emoji"'>&#128522;</span><span
+                style='font-family:"Comic Sans MS"'>.</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>So firstly
+                we will make the length of the two linked list equal.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:4.5284in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#B590C4'>int </span><span style='color:#859BB5'>getDiff</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>ListNode </span><span
+                  style='color:#B590C4'>*</span><span style='color:#BC9169'>h1</span><span
+                  style='color:#979797'>, </span><span style='color:#A1966D'>ListNode </span><span
+                  style='color:#B590C4'>*</span><span style='color:#BC9169'>h2</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; ListNode </span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'>t1</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>h1, </span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'>t2</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>h2;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> n</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>, m</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(t1 </span><span style='color:#64A7A7'>||</span><span
+                  style='color:#979797'> t2){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(t1){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; n</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>t1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(t2){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; t2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>t2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return</span><span
+                  style='color:#979797'> n</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#979797'>m;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>}</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; </p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#A1966D'>ListNode </span><span style='color:#B590C4'>*</span><span
+                  style='color:#859BB5'>getIntersectionNode</span><span style='color:#979797'>(</span><span
+                  style='color:#A1966D'>ListNode </span><span style='color:#B590C4'>*</span><span
+                  style='color:#BC9169'>h1</span><span style='color:#979797'>, </span><span
+                  style='color:#A1966D'>ListNode </span><span style='color:#B590C4'>*</span><span
+                  style='color:#BC9169'>h2</span><span style='color:#979797'>) {</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> k</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>getDiff</span><span style='color:#979797'>(h1,h2);</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(k</span><span style='color:#64A7A7'>&gt;</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(k</span><span
+                  style='color:#64A7A7'>-- != </span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; h1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>else
+                  if</span><span style='color:#979797'>(k</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(k</span><span
+                  style='color:#64A7A7'>++ != </span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; h2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(h1){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(h1</span><span
+                  style='color:#64A7A7'>==</span><span style='color:#979797'>h2)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>return</span><span style='color:#979797'> h2;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; h1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; h2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>h2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>NULL</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Time Complexity: </span>O(max(m,n))</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Space Complexity: </span>O(n+m)</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Optimalissstttt Algorithm :- </span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>Take two
+                dummy nodes on each of two nodes, now keep moving the nodes, if any of the
+                nodes reaches the end of the linked list initialize it two the head of the
+                other linked list. This way after few iteration both the dummy nodes will be
+                pointing to the same level, that is they will be having same number of nodes,
+                in front of them.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>The
+                difference of length method requires various steps to work on it. Using the
+                same concept of difference of length, a different approach can be implemented.
+                The process is as follows:-</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>1. Take two
+                dummy nodes for each list. Point each to the head of the lists.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>2. Iterate
+                over them. If anyone becomes null, point them to the head of the opposite lists
+                and continue iterating until they collide.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>3. This way
+                the two dummy nodes, will be pointing to the same level, after few iterations.
+                And once they are at the same level, they gonna meet for sure. </p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:4.5284in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#A1966D'>ListNode </span><span style='color:#B590C4'>*</span><span
+                  style='color:#859BB5'>getIntersectionNode</span><span style='color:#979797'>(</span><span
+                  style='color:#A1966D'>ListNode </span><span style='color:#B590C4'>*</span><span
+                  style='color:#BC9169'>h1</span><span style='color:#979797'>, </span><span
+                  style='color:#A1966D'>ListNode </span><span style='color:#B590C4'>*</span><span
+                  style='color:#BC9169'>h2</span><span style='color:#979797'>) {</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; ListNode </span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'>d1</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>h1, </span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'>d2</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>h2;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(</span><span style='color:#64A7A7'>!</span><span
+                  style='color:#979797'>d1 </span><span style='color:#64A7A7'>|| !</span><span
+                  style='color:#979797'>d2)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>return </span><span style='color:#BC9169'>NULL</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(d1</span><span style='color:#64A7A7'>!=</span><span
+                  style='color:#979797'>d2){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; d1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>d1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; d2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>d2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(d1</span><span
+                  style='color:#64A7A7'>==</span><span style='color:#979797'>d2)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>return</span><span style='color:#979797'> d1;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(d1</span><span
+                  style='color:#64A7A7'>==</span><span style='color:#BC9169'>NULL</span><span
+                  style='color:#979797'>)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; d1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>h2;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(d2</span><span
+                  style='color:#64A7A7'>==</span><span style='color:#BC9169'>NULL</span><span
+                  style='color:#979797'>)</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; d2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>h1;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return</span><span
+                  style='color:#979797'> d2;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:   12pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Time Complexity: </span>O(2*max(m,n))</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:   12pt'><span
+                style='font-weight:bold'>Space Complexity: </span>O(1)</p> 
+            </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
