@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Passing the Plates 🍽️</h1>
+            <a href="https://ide.geeksforgeeks.org/"><button class="btn">Give it a try :)</button></a>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>We are passing a sequence of plates from Atul to
+            Zenobia. Each plate has a number painted on it and no two plates have the same
+            number. We have a table in front of us on which we can temporarily store a
+            single stack of plates. At each step, we are allowed to do one of the
+            following: </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Take a plate from Atul and pass it on imme
+            iately
+            to Zenobia.</span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Take a plate from Atul and put it on top o
+             the
+            stack on the table. </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• If there is at least one plate in the stac
+             on the
+            table, take the topmost plate off the stack and pass it on to Zenobia. </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>&nbsp;</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>In this process, we can rearrange the plates that
+            Atul gives us before passing them on to Zenobia. For instance, if the sequence
+            of numbers on the plates given to us by Atul is 1,2,3,4, we can pass them onto
+            Zenobia in the sequence 2,4,3,1 as follows: </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>&nbsp;</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Take plate 1 from Atul and start a stack o
+             the
+            table. </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Pass plate 2 directly from Atul to Zenobia
+             </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Take plate 3 from Atul and stack it on top
+            of plate
+            1. </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Pass plate 4 directly from Atul to Zenobia
+             </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Take plate 3 off the stack and pass it to 
+            enobia. </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-style:italic'>• Take plate 1 off the stack and pass it to 
+            enobia. </span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>&nbsp;</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-weight:bold'>Algorithm: -</span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>1. Make two
+            pointers i and j, pointing to the arr and the req.</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>2. Compare
+            arr[i] == req[j], if so then we are directly passing the plates from Atul to
+            Zen, so just increasing both the pointers</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>3. If they
+            are not equal, then check whether the req[j] == st.top(), if yes then we will
+            be passing the plate from the stack to the req[], so pop from the stack, and
+            increase j.</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>4. If the
+            req[j] != st.top(), then we will have no option, but to push the plate on the
+            stack.</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>5. Once all
+            the elements of the arr are traversed, i.e. i==n, then start popping from the
+            stack, till j=n, </p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>6. At the
+            end check if, stack is empty as well as j=n, if yes then the req[] array is
+            valid else not.</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>&nbsp;</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+            yellow'>Intuition:</span> The logic behind this algorithm is that, we will keep
+            traversing the array with i while if the arr[i] is equal to the req[j] then we
+            will simply pass it to Zen and increase j, since we got one more element from
+            the required array. While if it is not equal then we will check if the top of
+            the stack is equal to the req[j], if yes then we will pass the top plate from
+            the stack to Zen. And if both of the above cases doesn't occur then we have
+            only one option and that is to push the plate from Atul into the stack.</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>&nbsp;</p>
+            
+            <div style='direction:ltr'>
+            
+            <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+             border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+             1pt' title="" summary="">
+             <tr>
+              <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+              background-color:#002451;vertical-align:top;width:3.559in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#B590C4'>bool </span><span style='color:#859BB5'>solve</span><span
+              style='color:#979797'>(</span><span style='color:#B590C4'>int </span><span
+              style='color:#BC9169'>a</span><span style='color:#979797'>[], </span><span
+              style='color:#B590C4'>int </span><span style='color:#BC9169'>b</span><span
+              style='color:#979797'>[], </span><span style='color:#B590C4'>int </span><span
+              style='color:#BC9169'>n</span><span style='color:#979797'>){</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; stack</span><span style='color:#64A7A7'>&lt;</span><span
+              style='color:#B590C4'>int</span><span style='color:#64A7A7'>&gt;</span><span
+              style='color:#979797'> st;</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+              style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+              style='color:#BC9169'>0</span><span style='color:#979797'>, j</span><span
+              style='color:#64A7A7'>=</span><span style='color:#BC9169'>0</span><span
+              style='color:#979797'>;</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+              style='color:#979797'>(i</span><span style='color:#64A7A7'>&lt;</span><span
+              style='color:#979797'>n){</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+              style='color:#B590C4'>if</span><span style='color:#979797'>(</span><span
+              style='color:#E38C92'>a</span><span style='color:#979797'>[i]</span><span
+              style='color:#64A7A7'>==</span><span style='color:#E38C92'>b</span><span
+              style='color:#979797'>[j]){</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i</span><span
+              style='color:#64A7A7'>++</span><span style='color:#979797'>; j</span><span
+              style='color:#64A7A7'>++</span><span style='color:#979797'>;</span><span
+              style='color:#7285B7'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //directly passing</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+              &nbsp; &nbsp; &nbsp; }</p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+              style='color:#B590C4'>else</span><span style='color:#979797'>{</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+              style='color:#B590C4'>if</span><span style='color:#979797'>(</span><span
+              style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+              style='color:#859BB5'>size</span><span style='color:#979797'>() </span><span
+              style='color:#64A7A7'>&amp;&amp; </span><span style='color:#E38C92'>st</span><span
+              style='color:#979797'>.</span><span style='color:#859BB5'>top</span><span
+              style='color:#979797'>()</span><span style='color:#64A7A7'>==</span><span
+              style='color:#E38C92'>b</span><span style='color:#979797'>[j]){</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              j</span><span style='color:#64A7A7'>++</span><span style='color:#979797'>;</span><span
+              style='color:#7285B7'> &nbsp; &nbsp; &nbsp; &nbsp;//passing from stack</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              </span><span style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+              style='color:#859BB5'>pop</span><span style='color:#979797'>();</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+              style='color:#B590C4'>else</span><span style='color:#979797'>{</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              </span><span style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+              style='color:#859BB5'>push</span><span style='color:#979797'>(</span><span
+              style='color:#E38C92'>a</span><span style='color:#979797'>[i</span><span
+              style='color:#64A7A7'>++</span><span style='color:#979797'>]);</span><span
+              style='color:#7285B7'> &nbsp; //pushing in the stack</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+              &nbsp; &nbsp; &nbsp; }</p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+              &nbsp; }</p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+              style='color:#979797'>(</span><span style='color:#E38C92'>st</span><span
+              style='color:#979797'>.</span><span style='color:#859BB5'>size</span><span
+              style='color:#979797'>() </span><span style='color:#64A7A7'>&amp;&amp; </span><span
+              style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+              style='color:#859BB5'>top</span><span style='color:#979797'>()</span><span
+              style='color:#64A7A7'>==</span><span style='color:#E38C92'>b</span><span
+              style='color:#979797'>[j]){</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+              style='color:#E38C92'>st</span><span style='color:#979797'>.</span><span
+              style='color:#859BB5'>pop</span><span style='color:#979797'>();</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; j</span><span
+              style='color:#64A7A7'>++</span><span style='color:#979797'>;</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+              &nbsp; }</p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>if</span><span
+              style='color:#979797'>(</span><span style='color:#E38C92'>st</span><span
+              style='color:#979797'>.</span><span style='color:#859BB5'>size</span><span
+              style='color:#979797'>()</span><span style='color:#64A7A7'>==</span><span
+              style='color:#BC9169'>0 </span><span style='color:#64A7A7'>&amp;&amp;</span><span
+              style='color:#979797'> j</span><span style='color:#64A7A7'>==</span><span
+              style='color:#979797'>n)</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+              style='color:#B590C4'>return </span><span style='color:#BC9169'>true</span><span
+              style='color:#979797'>;</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+              style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return
+              </span><span style='color:#BC9169'>false</span><span style='color:#979797'>;</span></p>
+              <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>}</p>
+              </td>
+             </tr>
+            </table>
+            
+            </div>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>&nbsp;</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-weight:bold;text-decoration:underline'>Complexity Analysis</span><span
+            style='font-weight:bold'>:</span></p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-weight:bold'>Time: O(N):</span> We need to check only each number
+            in the sequence.</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+            style='font-weight:bold'>Space: O(N):</span> We need to maintain an extra
+            stack, this stack can contain the entire</p>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'>array in the
+            worst case.</p>
+            
+            </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
