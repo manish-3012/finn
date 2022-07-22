@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Add two numbers represented as Linked Lists ➕</h1>
+            <p>Given two numbers represented by two lists, write a function that returns the sum list. The sum list is a list representation of the addition of two input numbers.</p>
+            <a href="https://practice.geeksforgeeks.org/problems/add-two-numbers-represented-by-linked-lists/1"><button class="btn">Give it a try :)</button></a>
+            
+            <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold;background:yellow;mso-highlight:yellow'>Intuition</span>:
+                Keep track of the&nbsp;<span style='font-weight:bold;font-style:italic'>carry</span>&nbsp;using
+                a variable and simulate digits-by-digits sum starting from the head of the
+                list, which contains the least significant digit.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold;background:yellow;mso-highlight:yellow'>Approach</span><span
+                style='background:yellow;mso-highlight:yellow'>:&nbsp;</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-style:italic'>342 + 465 = 807</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-style:italic'>342+465=807.</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-style:italic'>Each node contains a single digit and the digits are
+                stored in reverse order.</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>Just
+                like how you would sum two numbers on a piece of paper, we begin by summing the
+                least significant digits, which is the head of l1 and l2. Since each digit is
+                in the range of 0…9, summing two digits may “overflow”. For exam
+                bsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>5
+                + 7= 12. In this case, we set the current digit to 2 (12%10) and bring over the
+                carry=1 (12/10) to the next iteration.&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>carry
+                must be either 0 or 1 because the largest possible sum of two digits (including
+                the carry) is 9 + 9 + 1 = 19.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold;background:yellow;mso-highlight:yellow'>Psuedocode:</span></p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>1.
+                Create a dummy node which is the head of new linked list.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>2.
+                Create a node temp, initialise it with dummy.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>3.
+                Initialize carry to 0.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>4.
+                Loop through lists l1 and l2 until you reach both ends, and until carry is
+                present.</p>
+                
+                <p style='   margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12.0pt;color:#303030'> &nbsp; &nbsp; &nbsp; a. Set sum=l1.val+ l2.val + carry.</p>
+                
+                <p style='   margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12.0pt;color:#303030'> &nbsp; &nbsp; &nbsp; b. Update carry=sum/10.</p>
+                
+                <p style='   margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12.0pt;color:#303030'> &nbsp; &nbsp; &nbsp; c. Create a new node with the digit value of (sum%10) and
+                set it to temp node’s next, then
+                
+                <p style='   margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12.0pt;color:#303030'> &nbsp; &nbsp; &nbsp; d. advance temp node to next.</p>
+                
+                <p style='   margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12.0pt;color:#303030'> &nbsp; &nbsp; &nbsp; e. Advance both l1 and l2.</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>5.
+                Return dummy’s next node.</
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold;font-style:italic'>Note</span>&nbsp;that we use a dummy
+                head to simplify the code. Without a dummy head, you would have to write extra
+                conditional statements to initialize the head’s value.</
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>Take
+                extra caution in the following cases:</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:1.7666in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>Test case</p>
+                  </td>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:6.052in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>Explanation</p>
+                  </td>
+                 </tr>
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:1.7666in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>l1=[0,1],
+                  l2=[0,1,2]</p>
+                  </td>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:6.052in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>When one
+                  list is longer than the other.</p>
+                  </td>
+                 </tr>
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:1.7666in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>l1=[],
+                  l2=[0,1]</p>
+                  </td>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:6.052in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>When one
+                  list is null, which means an empty list.</p>
+                  </td>
+                 </tr>
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:1.7666in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>l1=[9,9],
+                  l2=[1]</p>
+                  </td>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  vertical-align:top;width:6.1215in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>The sum
+                  could have an extra carry of one at the end, which is easy to forget.</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:6.1409in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#A1966D'>ListNode</span><span style='color:#B590C4'>* </span><span
+                  style='color:#859BB5'>addTwoNumbers</span><span style='color:#979797'>(</span><span
+                  style='color:#A1966D'>ListNode</span><span style='color:#B590C4'>* </span><span
+                  style='color:#BC9169'>l1</span><span style='color:#979797'>, </span><span
+                  style='color:#A1966D'>ListNode</span><span style='color:#B590C4'>* </span><span
+                  style='color:#BC9169'>l2</span><span style='color:#979797'>) {</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; ListNode</span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'> ans</span><span style='color:#64A7A7'>=new </span><span
+                  style='color:#859BB5'>ListNode</span><span style='color:#979797'>();</span><span
+                  style='color:#7285B7'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //to return as the
+                  final ans</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; ListNode</span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'> temp</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>ans;</span><span style='color:#7285B7'> &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//to keep the nodes in the
+                  ans linked list</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> carry </span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>while</span><span
+                  style='color:#979797'>(l1 </span><span style='color:#64A7A7'>||</span><span
+                  style='color:#979797'> l2 </span><span style='color:#64A7A7'>||</span><span
+                  style='color:#979797'> carry){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>int</span><span style='color:#979797'> s</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(l1){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; s</span><span
+                  style='color:#64A7A7'>+=</span><span style='color:#E38C92'>l1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>val</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; l1</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>l1</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>if</span><span style='color:#979797'>(l2){</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; s</span><span
+                  style='color:#64A7A7'>+=</span><span style='color:#E38C92'>l2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>val</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; l2</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>l2</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; s</span><span
+                  style='color:#64A7A7'>+=</span><span style='color:#979797'>carry;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; carry</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>s</span><span
+                  style='color:#64A7A7'>/</span><span style='color:#BC9169'>10</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; ListNode </span><span
+                  style='color:#64A7A7'>*</span><span style='color:#979797'>node</span><span
+                  style='color:#64A7A7'>=new </span><span style='color:#859BB5'>ListNode</span><span
+                  style='color:#979797'>(s</span><span style='color:#64A7A7'>%</span><span
+                  style='color:#BC9169'>10</span><span style='color:#979797'>);</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>temp</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>next</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>node;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; temp</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>temp</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#E38C92'>ans</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>next</span><span style='color:#979797'>;</span></p>
+                  <p style='   font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>&nbsp;</p>
+                
+                <p style='   font-family:"Comic Sans MS";font-size:12.0pt'>There exist
+                another solution as well, which is simply extracting the numbers from the
+                linked list, adding them and then putting them back into a linked list, but
+                this is not going to work as we can't add/store very large inputs.</p>
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Delete a given node in a Linked List ➕</h1>
+            <a href="https://leetcode.com/problems/delete-node-in-a-linked-list/"><button class="btn">Give it a try :)</button></a>
+            
+            <p style='  font-family:"Comic Sans MS";font-size:12.0pt'>Write a
+                function to&nbsp;<span style='font-weight:bold;color:#303030'>delete a node</span>&nbsp;in
+                a singly-linked list. You will&nbsp;<span style='font-weight:bold;color:#303030'>not</span>&nbsp;be
+                given access to the head of the list instead, you will be given access to&nbsp;<span
+                style='font-weight:bold;color:#303030'>the node to be deleted&nbsp;</span>directly.
+                It is&nbsp;<span style='font-weight:bold;color:#303030'>guaranteed</span>&nbsp;that
+                the node to be deleted is&nbsp;<span style='font-weight:bold;color:#303030'>not
+                a tail node&nbsp;</span>in the list.</p>
+                
+                
+                <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold'>Example 1:</span><br>
+                <span style='font-weight:bold'>Input:</span><br>
+                <span style='mso-spacerun:yes'> </span>Linked list: [1,4,2,3]<br>
+                <span style='mso-spacerun:yes'>Node =  </span>
+                <span style='font-weight:bold'>Output:</span><br>
+                Linked list: [1,4,3]</p>
+                
+                <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold'>Explanation:</span> Access is given to node 2. After
+                deleting nodes, the linked list will be modified to [1,4,3].</p>
+                
+                <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>&nbsp;</p>
+                
+                <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'><span
+                style='font-weight:bold;background:yellow;mso-highlight:yellow'>Approach:</span></p>
+                
+                <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>We
+                are given access to nodes that we have to delete from the linked list. So,
+                whatever operation we want to do in the linked list, we can operate in the
+                right part of the linked list from the node to be deleted.&nbsp;</p>
+                
+                <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#303030'>The
+                approach is to copy the next node’s value in the deleted node. Then, lin
+                 node
+                to next of next node. This does not delete that node but indirectly it removes
+                that node from the linked list.</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:2.518in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style='  font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#B590C4'>void </span><span style='color:#859BB5'>deleteNode</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>Node </span><span
+                  style='color:#B590C4'>*</span><span style='color:#BC9169'>del</span><span
+                  style='color:#979797'>)</span></p>
+                  <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>{</p>
+                  <p style='  font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>del</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>data</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>del</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>data</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='  font-family:"Comic Sans MS";font-size:12.0pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>del</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#E38C92'>del</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>-&gt;</span><span style='color:#E38C92'>next</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style='  font-family:"Comic Sans MS";font-size:12.0pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+        </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
