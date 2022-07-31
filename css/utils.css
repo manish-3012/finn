@@ -28,7 +28,9 @@
 }
 
 td{
-    min-width: 50vh;
+    min-width: 40vw;
+    max-width: 40vw;
+
     margin-bottom: 10px;
 }
 
@@ -112,7 +114,9 @@ textarea {
 }
 
 .code{
-    margin: auto;
+    margin: 5px 50px;
+    max-width: 53vw;
+    min-width: 50vw;
 }
 
 .code p{

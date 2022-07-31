@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Find the Height of a Tree 🌴</h1>
+            <a href="https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1            "><button class="btn">Give it a try :)</button></a>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>When the
+                difference of heights of the left and the right subtree &lt;=1, then it is
+                called as a balanced binary tree.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>Here in the
+                above figure first one is a balanced binary tree, while the second is not.
+                Since for the first tree, difference of heights of left and right subtree is
+                less than or equal to one. While for the second tree, for the root node, height
+                </p>
+                
+                <p style=' margin-left:1.5in;font-family:"Comic Sans MS";font-size:
+                10.5pt'>Height of left subtree = 3</p>
+                
+                <p style=' margin-left:1.5in;font-family:"Comic Sans MS";font-size:
+                10.5pt'>Height of right subtree = 1</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+                yellow'>Naïve Approach:</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>In this
+                approach for a particular node, we will find the height if the left and the
+                right subtree. If the difference is greater than 1, we will return false there
+                only, while if its less than or equal to one, we will check for its left and
+                the right subtree. If any of the left or right subtree is not balanced, then we
+                will return false.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+               
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                    style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+                    yellow'>Algorithm:</span></p>
+                    
+                    <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>1) If (root
+                    == NULL), then yes it is a balanced tree</p>
+                    
+                    <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>2) Find the
+                    height of left and right subtree</p>
+                    
+                    <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>3) If diff
+                    of left and right subtree is greater than one, return false</p>
+                    
+                    <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>4) If not,
+                    then check if the left and right subtrees of the current node are balanced</p>
+                    
+                    <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>5) If any of
+                    the subtree is not balanced then return false, else return true.</p>
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#001932;vertical-align:top;width:5.7055in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#A1966D'>int </span><span style='color:#859BB5'>height</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>struct </span><span
+                  style='color:#A1966D'>Node</span><span style='color:#B590C4'>* </span><span
+                  style='color:#BC9169'>root</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(root</span><span style='color:#64A7A7'>==</span><span
+                  style='color:#BC9169'>NULL</span><span style='color:#979797'>)</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>0</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> lh</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>height</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>left</span><span style='color:#979797'>);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> rh</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>height</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>right</span><span style='color:#979797'>);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> ans</span><span style='color:#64A7A7'>= </span><span
+                  style='color:#BC9169'>1</span><span style='color:#64A7A7'>+ </span><span
+                  style='color:#859BB5'>max</span><span style='color:#979797'>(lh,rh);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>return</span><span
+                  style='color:#979797'> ans;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>}</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#B590C4'>bool </span><span style='color:#859BB5'>isBalanced</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>Node </span><span
+                  style='color:#B590C4'>*</span><span style='color:#BC9169'>root</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(root</span><span style='color:#64A7A7'>==</span><span
+                  style='color:#BC9169'>NULL</span><span style='color:#979797'>)</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>true</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> lh</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>height</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>left</span><span style='color:#979797'>);</span><span
+                  style='color:#7285B7'> &nbsp; &nbsp; &nbsp; //stores the height of left
+                  subtree</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> rh</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>height</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>right</span><span style='color:#979797'>);</span><span
+                  style='color:#7285B7'> &nbsp; &nbsp; &nbsp;//stores the height of right
+                  subtree</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(</span><span style='color:#859BB5'>abs</span><span
+                  style='color:#979797'>(lh</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#979797'>rh)</span><span style='color:#64A7A7'>&gt;</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>)</span><span
+                  style='color:#7285B7'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; //if the tree is not balanced</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>false</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>bool</span><span
+                  style='color:#979797'> b1</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>isBalanced</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>left</span><span style='color:#979797'>);</span><span
+                  style='color:#7285B7'> &nbsp;//to check whether left subtree isBalanced</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>bool</span><span
+                  style='color:#979797'> b2</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>isBalanced</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>right</span><span style='color:#979797'>);</span><span
+                  style='color:#7285B7'> &nbsp;//to check whether right subtree isBalanced</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(b1</span><span style='color:#64A7A7'>==</span><span
+                  style='color:#BC9169'>0 </span><span style='color:#64A7A7'>||</span><span
+                  style='color:#979797'> b2</span><span style='color:#64A7A7'>==</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>)</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>false</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>return </span><span
+                  style='color:#BC9169'>true</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold;color:#273239'>Time Complexity:</span>&nbsp;O(n^2) in
+                case of&nbsp;<a
+                href="https://www.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree/">full
+                binary tree</a>.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+                yellow'>Optimal Approach:</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>Here we will
+                use the method to determine the height of the tree. If for any particular node,
+                the tree is not balanced, directly return '-1' instead. While if the tree is
+                balanced for the current node, then check if the tree is balanced for the left
+                and the right subtree as well. If either of the left or the right subtree is
+                not balanced, then return '-1'.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#001932;vertical-align:top;width:4.3743in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#B590C4'>int </span><span style='color:#859BB5'>height</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>struct </span><span
+                  style='color:#A1966D'>Node</span><span style='color:#B590C4'>* </span><span
+                  style='color:#BC9169'>root</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(root</span><span style='color:#64A7A7'>==</span><span
+                  style='color:#BC9169'>NULL</span><span style='color:#979797'>)</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>0</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> lh</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>height</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>left</span><span style='color:#979797'>);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> rh</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>height</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>root</span><span style='color:#979797'>-&gt;</span><span
+                  style='color:#E38C92'>right</span><span style='color:#979797'>);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp;</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(</span><span style='color:#859BB5'>abs</span><span
+                  style='color:#979797'>(lh</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#979797'>rh)</span><span style='color:#64A7A7'>&gt;</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>)</span><span
+                  style='color:#7285B7'> &nbsp;//if the tree is not balanced</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp;</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(lh</span><span style='color:#64A7A7'>==-</span><span
+                  style='color:#BC9169'>1 </span><span style='color:#64A7A7'>||</span><span
+                  style='color:#979797'> rh</span><span style='color:#64A7A7'>==-</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>)</span><span
+                  style='color:#7285B7'> //if left or right subtree isn't balanced</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp;</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> ans</span><span style='color:#64A7A7'>= </span><span
+                  style='color:#BC9169'>1</span><span style='color:#64A7A7'>+ </span><span
+                  style='color:#859BB5'>max</span><span style='color:#979797'>(lh,rh);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>return</span><span
+                  style='color:#979797'> ans;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>}</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#B590C4'>bool </span><span style='color:#859BB5'>isBalanced</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>Node </span><span
+                  style='color:#B590C4'>*</span><span style='color:#BC9169'>root</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; </span><span style='color:#B590C4'>if</span><span
+                  style='color:#979797'>(</span><span style='color:#859BB5'>height</span><span
+                  style='color:#979797'>(root)</span><span style='color:#64A7A7'>==-</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>)</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span
+                  style='color:#B590C4'>return </span><span style='color:#BC9169'>false</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp;</span><span style='color:#B590C4'>return </span><span
+                  style='color:#BC9169'>true</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold;text-decoration:underline'>Time Complexity</span><span
+                style='font-weight:bold'>: </span>O(n)</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold;text-decoration:underline'>Space Complexity</span><span
+                style='font-weight:bold'>: </span>O(n)</p>
+                
+                </div>
+            </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>

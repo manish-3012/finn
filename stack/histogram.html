@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Maximum Area Histogram 📚</h1>
+            <a href="https://practice.geeksforgeeks.org/problems/maximum-rectangular-area-in-a-histogram/0
+            "><button class="btn">Give it a try :)</button></a>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>Find the
+                largest rectangular area possible in a given histogram where the largest
+                rectangle can be made of a number of contiguous bars. For simplicity, assume
+                that all bars have the same width and the width is<span style='font-weight:
+                bold'>&nbsp;1 unit</span>, there will be&nbsp;<span style='font-weight:bold'>N</span>&nbsp;bars
+                height of each bar will be given by the array&nbsp;<span style='font-weight:
+                bold'>arr</span>.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold'>Example 1:</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold'>Input:<br>
+                </span>N = 7<br>
+                arr[] = {6,2,5,4,5,1,6} <br>
+                <span style='font-weight:bold'>Output: </span>12</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>A building
+                can be expanded into other buildings only when, the other buildings have height
+                greater than or equal to the current building.</p>
+                
+               
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:2.2541in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style=' line-height:14pt;font-family:"Comic Sans MS";font-size:
+                  10.5pt'>&nbsp;</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#B590C4'>int </span><span style='color:#859BB5'>solve</span><span
+                  style='color:#979797'>(</span><span style='color:#A1966D'>vector</span><span
+                  style='color:#979797'>&lt;</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'>&gt; </span><span style='color:#BC9169'>arr</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> n</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#E38C92'>arr</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>size</span><span style='color:#979797'>();</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> ans</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; vector</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#B590C4'>int</span><span style='color:#64A7A7'>&gt;</span><span
+                  style='color:#979797'> vl, vr;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; vl</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>nsl</span><span style='color:#979797'>(arr);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; vr</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#859BB5'>nsr</span><span style='color:#979797'>(arr);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>n;i</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>int</span><span style='color:#979797'> w </span><span
+                  style='color:#64A7A7'>= </span><span style='color:#E38C92'>vr</span><span
+                  style='color:#979797'>[i] </span><span style='color:#64A7A7'>- </span><span
+                  style='color:#E38C92'>vl</span><span style='color:#979797'>[i] </span><span
+                  style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; ans </span><span
+                  style='color:#64A7A7'>= </span><span style='color:#859BB5'>max</span><span
+                  style='color:#979797'>(ans, w</span><span style='color:#64A7A7'>*</span><span
+                  style='color:#E38C92'>arr</span><span style='color:#979797'>[i]);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return</span><span
+                  style='color:#979797'> ans;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:black'><span
+                style='font-weight:bold'>Time Complexity: O(n</span><span style='font-weight:
+                bold;vertical-align:super'>2</span><span style='font-weight:bold'>)</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:black'><span
+                style='font-weight:bold'>Space Complexity: O(2n)</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>Where nsl
+                and nsr are determined as shown in the <a
+                href="onenote:#NGR,%20NSR,%20NGL,%20NSL&amp;section-id={57C904D3-91B6-4FC0-9FA5-95F8052CEA6B}&amp;page-id={B1CA7253-17BE-4AB9-989B-43E3F9B5E6F2}&amp;end&amp;base-path=https://d.docs.live.net/0fac5dabcf78870e/Documents/DSA/DSA.one">NGR,
+                NSR, NGL, NSL</a></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold'>Efficient method:</span></p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:4.7805in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#B590C4'>long long </span><span style='color:#859BB5'>getMaxArea</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>long long </span><span
+                  style='color:#BC9169'>v</span><span style='color:#979797'>[], </span><span
+                  style='color:#B590C4'>int </span><span style='color:#BC9169'>n</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; vector</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#B590C4'>long long</span><span style='color:#64A7A7'>&gt; </span><span
+                  style='color:#859BB5'>r</span><span style='color:#979797'>(n,n), </span><span
+                  style='color:#859BB5'>l</span><span style='color:#979797'>(n,</span><span
+                  style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>), </span><span style='color:#859BB5'>w</span><span
+                  style='color:#979797'>(n);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; stack</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#979797'>pair</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#B590C4'>long long</span><span style='color:#979797'>,</span><span
+                  style='color:#B590C4'>long long</span><span style='color:#64A7A7'>&gt;&gt;</span><span
+                  style='color:#979797'> s1, s2;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>s1</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>push</span><span
+                  style='color:#979797'>({</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>,</span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>n;i</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>){</span><span
+                  style='color:#7285B7'> &nbsp;<span style='mso-spacerun:yes'>Â Â Â
+                 Â �
+                  </span>//to find the nearest minimum to right</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>size</span><span style='color:#979797'>() </span><span
+                  style='color:#64A7A7'>&amp;&amp; </span><span style='color:#E38C92'>s1</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>top</span><span
+                  style='color:#979797'>().</span><span style='color:#E38C92'>second</span><span
+                  style='color:#64A7A7'>&gt;</span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[i]){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>r</span><span style='color:#979797'>[</span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>top</span><span style='color:#979797'>().</span><span
+                  style='color:#E38C92'>first</span><span style='color:#979797'>]</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>i;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>pop</span><span style='color:#979797'>();</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>push</span><span style='color:#979797'>({i, </span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[i]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>s2</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>push</span><span
+                  style='color:#979797'>({n</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>,</span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[n</span><span
+                  style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>n</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&gt;=</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>;i</span><span style='color:#64A7A7'>--</span><span
+                  style='color:#979797'>){</span><span style='color:#7285B7'><span
+                  style='mso-spacerun:yes'>        </span>//to find the near
+                nimum to left</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>size</span><span style='color:#979797'>() </span><span
+                  style='color:#64A7A7'>&amp;&amp; </span><span style='color:#E38C92'>s2</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>top</span><span
+                  style='color:#979797'>().</span><span style='color:#E38C92'>second</span><span
+                  style='color:#64A7A7'>&gt;</span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[i]){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>l</span><span style='color:#979797'>[</span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>top</span><span style='color:#979797'>().</span><span
+                  style='color:#E38C92'>first</span><span style='color:#979797'>]</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>i;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>pop</span><span style='color:#979797'>();</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>push</span><span style='color:#979797'>({i, </span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[i]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp; } </p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>long
+                  long</span><span style='color:#979797'> ans</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>]; </span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>n;i</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>w</span><span style='color:#979797'>[i]</span><span
+                  style='color:#64A7A7'>= </span><span style='color:#E38C92'>r</span><span
+                  style='color:#979797'>[i] </span><span style='color:#64A7A7'>- </span><span
+                  style='color:#E38C92'>l</span><span style='color:#979797'>[i] </span><span
+                  style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; ans</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#859BB5'>max</span><span
+                  style='color:#979797'>(ans, </span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[i]</span><span style='color:#64A7A7'>*</span><span
+                  style='color:#E38C92'>w</span><span style='color:#979797'>[i]); </span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return</span><span
+                  style='color:#979797'> ans;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:10.5pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold'>Time Complexity: O(n</span><span style='font-weight:
+                bold;vertical-align:super'>2</span><span style='font-weight:bold'>)</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:10.5pt'><span
+                style='font-weight:bold'>Space Complexity: O(2n)</span></p>
+                </div>
+            </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>

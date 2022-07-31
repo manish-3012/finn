@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/topic.css"> 
+    <link rel="stylesheet" href="../css/post.css"> 
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <title>codessy</title>
+</head>
+<body>
+    <nav class="navigation max-width-1 m-auto ">
+        <div class="nav-left">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <ul>
+                <li><a href="/">Home 🏠</a></li>
+                <li><a href="/topics.html">Topics 📚</a></li>
+                <li><a href="/about.html">About 😇</a></li>
+                <li><a href="/contact.html">Contact 📩</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <form action="/search.html" data-netlify="true">
+                <input class="form-input" type="text" placeholder="Search Topics">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+    <hr class="postart max-width-1 m-auto">
+    <div class="array-articles font1">
+        <div class="notes">
+            <h1>Implementation of Stack 📚</h1>
+            <a href="https://ide.geeksforgeeks.org/"><button class="btn">Give it a try :)</button></a>
+            
+            <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold;font-style:italic'>Given a non-empty array of integers
+                A, find for each element A[i], how many</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold;font-style:italic'>sub-arrays have A[i] as its minimum
+                element.</span></p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Arr =
+                [100,80,65,70,60,75,85]</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Ans = 1 2 6
+                1 15 2 1 </p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold'>Approach: </span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>First of all
+                one thing comes into mind that we will have to find a maximum possible
+                substring window, in which the current element is the smallest. Once we find
+                the Substring, now our work has diminished to find out the number of all the
+                Possible substrings, from the maximum possible substrings.</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold'>For example: </span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>For index,
+                i=2, the maximum possible substring will be</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>100, 80, 61,
+                70</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Now from the
+                above substrings we could have following possible options as the substring:</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>a. 100 80 61
+                70</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>b. 100 80 61
+                </p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>c.<span
+                style='mso-spacerun:yes'>        </span>80 61
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>d.<span
+                style='mso-spacerun:yes'>        </span>80
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>e.<span
+                style='mso-spacerun:yes'>             </sp
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>f.<span
+                style='mso-spacerun:yes'>             <
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>In general,
+                we could formulate this using the blank characters present in between the
+                number. This would help us to do calculations so as to get the total number of
+                substrings we could make from the maximum possible substring.</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>_100_80_61_70_</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Selecting a
+                blank character means, we are selecting all the elements till there, for
+                example if we select the first blank character, means we selected [100 80
+                61…..]</
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>While if we
+                selected the second blank space it means, that we didn’t select the fir
+                element and selected substring is [80 61….]. So we could see that the bl
+                nk
+                spaces tells us the total number of possible ways in which we could make a
+                substring from the above string,<span style='mso-spacerun:yes'>   
+                  �
+                </span></p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold'>To find the substring:</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>We will
+                track of the element, smaller than the current element from the both the ends. </p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>l[i] =
+                rightmost element to the left of i, which is &lt; a[i] </p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>r[i] =
+                leftmost element to the right of i, which is &lt; a[i]</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>So our
+                answer gonna be the, (i - l[i]) x (r[i] - i)</p>
+                
+                  
+                
+                <p style=' font-size:12pt'><span style='font-weight:bold;
+                font-style:italic;font-family:"Comic Sans MS";background:yellow;mso-highlight:
+                yellow'>Clever trick to find the substring </span><span style='font-weight:
+                bold;font-family:"Segoe UI Emoji";background:yellow;mso-highlight:yellow'>&#128526;</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Visualize
+                that, all these numbers are in the form of wall, where height depends on the
+                number. We will use an archery method here to find the l[i] and the r[i]. Lets
+                see how actually the archery method gonna work:-</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+                yellow'>To find the r[i]:</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>1. Firstly,
+                initialize all r[i] as n, push the leftmost element into the stack, </p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>2. Fire an
+                archery from the second index to the left of it, if the archery doesn’t 
+                it any
+                particular wall, then just push that wall into the stack.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>3. If the
+                archery hit any wall, pop that from the stack and update r[i] of that wall as
+                the index of the wall from which the archery hit that, and then finally push
+                that wall(from which the archery was fired) into the stack.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>4. Traverse
+                from i=0 to i=n-1 and keep firing archery from each index towards the left.</p>
+                
+                  
+                
+                <p style=' font-size:12pt'><span style='font-family:"Comic Sans MS"'>Still
+                sounds confusing?? </span><span style='font-family:"Segoe UI Emoji"'>&#129301;</span><span
+                style='font-family:"Comic Sans MS"'> Don’t worry we have got your back
+                </span><span
+                style='font-family:"Segoe UI Emoji"'>&#128521;</span></p>
+            
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>In the above
+                approach what we are doing is finding out the nearest smaller element to the
+                right. The sole purpose of the stack is to keep the elements for which we
+                haven't yet find out the NSR element. Once we are done finding the NSR for any
+                particular element pop it from the stack. So it's just a two-step process,
+                firstly push the element for which we have to find the NSR into the Stack. Now
+                keep traversing to its right, and when you come across an element smaller than
+                the element on the stack just pop it and update its NSR as that index. </p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+                yellow'>To find the l[i]:</span></p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>1. Firstly,
+                initialize all l[i] as -1, push the rightmost element into the stack.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>2. Fire an
+                archery from the second index to the right of it, if the archery doesn’t
+                hit
+                any particular wall, then just push that wall into the stack.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>3. If the
+                archery hit any wall, pop that from the stack and update l[i] of that wall as
+                the index of the wall from which the archery hit that, and then finally push
+                that wall(from which the archery was fired) into the stack.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>4. Traverse
+                from i=n-1 to i=0 and keep firing archery from each index towards the right.</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold;text-decoration:underline;background:yellow;mso-highlight:
+                yellow'>Dry Run:</span></p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='mso-spacerun:yes'>      </span>1. r[i] = [ 7, 7, 7, 7, 
+                , 7 ]</p>
+                
+                  
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { 100 }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Fire an archery from i=1, hits 100 so <span style='font-weight:bold'>pop
+                100</span> from the stack and update r[0] = 1</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { NULL }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>r[i] = [ 1, 7, 7, 7, 7, 7, 7 ]</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Now <span style='font-weight:bold'>push 80</span> into the stack</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='mso-spacerun:yes'>    </span>2. r[i] = [ 1, 7, 7, 7, 7, 7, 
+                ]</p>
+                
+                  
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { 80 }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Fire an archery from i=2, hits 80 so pop 80 from the stack and update
+                r[1] = 2</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { NULL }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>r[i] = [ 1, 2, 7, 7, 7, 7, 7 ]</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Now push 65 into the stack.</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='mso-spacerun:yes'>    </span>3. r[i] = [ 1, 2, 7, 7, 7, 7, 
+                ]</p>
+                
+                  
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { 65 }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Fire an archery from i=3, hits nothing, so push 70 into the stack</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { 65, 70 }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>r[i] = [ 1, 2, 7, 7, 7, 7, 7 ]</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='mso-spacerun:yes'>     </span>4. r[i] = [ 1, 2, 7, 7, 7, 
+                7 ]</p>
+                
+                  
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { 65, 70 }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Fire an archery from i=4, hits 70 so pop 70 from the stack and update
+                r[3] = 4, still the stack is not empty so the arrow will hit further to 65, and
+                pop that from the stack, also update r[2] = 4</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Stack = { NULL }</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>r[i] = [ 1, 2, 4, 4, 7, 7, 7 ]<span
+                style='mso-spacerun:yes'>              </span>//
+                lest to Right</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>Now push 60 into the stack.</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>&nbsp;</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='mso-spacerun:yes'>     </span>5. Now the right limit of the
+                maining
+                won't be updated.</p>
+                
+                <p style=' margin-left:.375in;font-family:"Comic Sans MS";font-size:
+                12pt'>As 60 is the smallest and all the elements from 60 can't be hit by any
+                archery, as they don’t have any smaller element right to it.</
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Finally,<span
+                style='mso-spacerun:yes'>     </span>r[i] = [ 1, 2, 4, 4, 7, 7, 
+                <span
+                style='mso-spacerun:yes'>    </span>//Nearest Smallest to Right<
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'>Similarly,
+                l[i] = [ -1, -1, -1, 2, -1, 4, 5]<span style='mso-spacerun:yes'>�
+                </span>//Nearest Smallest to Left</p>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold'>Code: </span></p>
+                
+                <div style='direction:ltr'>
+                
+                <table class="code" border=1 cellpadding=0 cellspacing=0 valign=top style='direction:ltr;
+                 border-collapse:collapse;border-style:solid;border-color:#A3A3A3;border-width:
+                 1pt' title="" summary="">
+                 <tr>
+                  <td style='border-style:solid;border-color:#A3A3A3;border-width:1pt;
+                  background-color:#002451;vertical-align:top;width:5.2472in;padding:2.0pt 3.0pt 2.0pt 3.0pt'>
+                  <p style=' line-height:14pt;font-family:"Comic Sans MS";font-size:
+                  12pt'>&nbsp;</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#B590C4'>#include</span><span style='color:#889C6E'>&lt;bits/stdc++.h&gt;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#B590C4'>using namespace </span><span style='color:#A1966D'>std</span><span
+                  style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#B590C4'>int </span><span style='color:#859BB5'>main</span><span
+                  style='color:#979797'>(){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> n;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; cin</span><span style='color:#64A7A7'>&gt;&gt;</span><span
+                  style='color:#979797'>n;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; vector</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#B590C4'>int</span><span style='color:#64A7A7'>&gt; </span><span
+                  style='color:#859BB5'>v</span><span style='color:#979797'>(n), </span><span
+                  style='color:#859BB5'>r</span><span style='color:#979797'>(n,n), </span><span
+                  style='color:#859BB5'>l</span><span style='color:#979797'>(n,</span><span
+                  style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>n;i</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; cin</span><span
+                  style='color:#64A7A7'>&gt;&gt;</span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[i];</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; stack</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#979797'>pair</span><span style='color:#64A7A7'>&lt;</span><span
+                  style='color:#B590C4'>int</span><span style='color:#979797'>,</span><span
+                  style='color:#B590C4'>int</span><span style='color:#64A7A7'>&gt;&gt;</span><span
+                  style='color:#979797'> s1, s2;</span><span style='color:#7285B7'> &nbsp;
+                  &nbsp; &nbsp;// pair of &lt;index, element&gt;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>s1</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>push</span><span
+                  style='color:#979797'>({</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>, </span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>n;i</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#7285B7'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; //if stack is non-empty and we find an element smaller
+                  than the top </p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>size</span><span style='color:#979797'>() </span><span
+                  style='color:#64A7A7'>&amp;&amp; </span><span style='color:#E38C92'>s1</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>top</span><span
+                  style='color:#979797'>().</span><span style='color:#E38C92'>second</span><span
+                  style='color:#64A7A7'>&gt;</span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[i]){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>r</span><span style='color:#979797'>[</span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>top</span><span style='color:#979797'>().</span><span
+                  style='color:#E38C92'>first</span><span style='color:#979797'>]</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>i;</span><span
+                  style='color:#7285B7'>//update the NSR of the top of the stack</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>pop</span><span style='color:#979797'>();</span><span
+                  style='color:#7285B7'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //pop the element
+                  from the stack</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s1</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>push</span><span style='color:#979797'>({i, </span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[i]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#E38C92'>s2</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>push</span><span
+                  style='color:#979797'>({n</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#BC9169'>1</span><span style='color:#979797'>, </span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[n</span><span
+                  style='color:#64A7A7'>-</span><span style='color:#BC9169'>1</span><span
+                  style='color:#979797'>]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#979797'>n</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#BC9169'>2</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&gt;=</span><span style='color:#BC9169'>0</span><span
+                  style='color:#979797'>;i</span><span style='color:#64A7A7'>--</span><span
+                  style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#7285B7'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; //if stack is non-empty and we find an element smaller
+                  than the top </p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#B590C4'>while</span><span style='color:#979797'>(</span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>size</span><span style='color:#979797'>() </span><span
+                  style='color:#64A7A7'>&amp;&amp; </span><span style='color:#E38C92'>s2</span><span
+                  style='color:#979797'>.</span><span style='color:#859BB5'>top</span><span
+                  style='color:#979797'>().</span><span style='color:#E38C92'>second</span><span
+                  style='color:#64A7A7'>&gt;</span><span style='color:#E38C92'>v</span><span
+                  style='color:#979797'>[i]){ &nbsp; </span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>l</span><span style='color:#979797'>[</span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>top</span><span style='color:#979797'>().</span><span
+                  style='color:#E38C92'>first</span><span style='color:#979797'>]</span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'>i;</span><span
+                  style='color:#7285B7'>//update the NSR of the top of the stack</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>pop</span><span style='color:#979797'>();</span><span
+                  style='color:#7285B7'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //pop the element
+                  from the stack</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+                  &nbsp; &nbsp; &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>s2</span><span style='color:#979797'>.</span><span
+                  style='color:#859BB5'>push</span><span style='color:#979797'>({i, </span><span
+                  style='color:#E38C92'>v</span><span style='color:#979797'>[i]});</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>int </span><span
+                  style='color:#E38C92'>ans</span><span style='color:#979797'>[n];</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>for</span><span
+                  style='color:#979797'>(</span><span style='color:#B590C4'>int</span><span
+                  style='color:#979797'> i</span><span style='color:#64A7A7'>=</span><span
+                  style='color:#BC9169'>0</span><span style='color:#979797'>;i</span><span
+                  style='color:#64A7A7'>&lt;</span><span style='color:#979797'>n;i</span><span
+                  style='color:#64A7A7'>++</span><span style='color:#979797'>){</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                  style='color:#E38C92'>ans</span><span style='color:#979797'>[i] </span><span
+                  style='color:#64A7A7'>=</span><span style='color:#979797'> (i</span><span
+                  style='color:#64A7A7'>-</span><span style='color:#E38C92'>l</span><span
+                  style='color:#979797'>[i]) </span><span style='color:#64A7A7'>*</span><span
+                  style='color:#979797'> (</span><span style='color:#E38C92'>r</span><span
+                  style='color:#979797'>[i]</span><span style='color:#64A7A7'>-</span><span
+                  style='color:#979797'>i);</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; &nbsp; &nbsp; cout</span><span
+                  style='color:#64A7A7'>&lt;&lt;</span><span style='color:#E38C92'>ans</span><span
+                  style='color:#979797'>[i]</span><span style='color:#64A7A7'>&lt;&lt;</span><span
+                  style='color:#889C6E'>&quot; &quot;</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>&nbsp;
+                  &nbsp; }</p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                  style='color:#979797'>&nbsp; &nbsp; </span><span style='color:#B590C4'>return
+                  </span><span style='color:#BC9169'>0</span><span style='color:#979797'>;</span></p>
+                  <p style=' font-family:"Comic Sans MS";font-size:12pt;color:#979797'>}</p>
+                  </td>
+                 </tr>
+                </table>
+                
+                </div>
+                
+                  
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold'>Time Complexity:</span> O(n<span style='vertical-align:
+                super'>2</span>)</p>
+                
+                <p style=' font-family:"Comic Sans MS";font-size:12pt'><span
+                style='font-weight:bold'>Space Complexity: </span>O(2n)</p>
+                
+
+                </div>
+            </div>
+    </div>
+    <div class="home-articles  font1">
+        <h1>People who read this also read!</h1>
+        <div class="top-row">
+            <div class="box">
+                <a href="/array/array.html">
+                    <img src="../img/array.png" alt="driving license" class="center">
+                    Arrays
+                </a>
+            </div>
+            <div class="box">
+                <a href="/string/string.html">
+                    <img src="../img/code2.png" alt="driving license" class="center">
+                    String
+                </a>
+            </div>
+            <div class="box">
+                <a href="/greedy/greedy.html">
+                    <img src="../img/code1.png" alt="driving license" class="center">
+                    Greedy
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr class="postart max-width-1 m-auto">
+    <div class="footer max-width-1 m-auto">
+        Copyright &copy; codessy.com
+    </div>
+</body>
+</html>
