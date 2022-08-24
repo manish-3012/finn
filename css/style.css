@@ -37,7 +37,7 @@
 }
 
 .nav-left ul li a:hover{
-    color: rgb(34, 136, 8);
+    color: rgb(8, 59, 136);
     cursor: pointer;
     font-weight:bolder; 
     text-shadow: 0 5px 35px rgba(0, 0, 0, 0.8);
@@ -158,7 +158,7 @@ h1{
 }
 
 .box a:hover{
-    color: rgb(34, 136, 8);
+    color: rgb(8, 59, 136);
     cursor: pointer;
     font-weight:bolder; 
     text-shadow: 0 5px 35px rgba(0, 0, 0, 0.8);
@@ -196,7 +196,7 @@ hr.postart{
 }
 
 .contact-left h2{
-    color:rgba(24, 79, 44, 0.993);
+    color: var(--blues);
 }
 
 .contact-right{
@@ -226,6 +226,9 @@ hr.postart{
     display: flex;
     justify-content: center;  /*on main  axis*/
     align-items: center;  /*on cross axis*/
+    font-family: var(--font1);
+    color: var(--blues);
+    text-align: center;
 }
 
 #foot{

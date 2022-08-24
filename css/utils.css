@@ -4,16 +4,20 @@
     /* --main-bg-color:rgb(201, 13, 107); */
     --main-bg-color:rgb(167, 96, 4);
     --coffee-color: rgb(51, 50, 38);
-    --blues: rgb(6, 63, 1);
-    --sky:	#9FE2BF;
-    --sky2:		#53d27d76;
-    --aesthetic: rgb(250, 250, 236);
-    --aesthetic2: #fbd7a1;
+    --blues: rgb(1, 42, 63);
+    --sky:	#0361cc22;
+    /* --sky2:		#3259da3a; */
+    /* --sky2:		#f884846f; */
+    --sky2:		#50a9bac4;
+    /* --sky2:		#5c8ba8c2; */
+    --aesthetic: #fbfae5;
+    --aesthetic2: #50a9bac4;
     --test: #2a4674;
     --test: #84caed;
     --font1: 'Baloo 2', serif;
     --font2:  'Roboto', sans-serif;
 }
+
 
 .font1{
     font-family: var(--font1);
